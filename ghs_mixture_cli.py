@@ -1445,7 +1445,7 @@ def generate_universal_html_app():
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Laboratory GHS Pictogram &amp; Mixture Label Studio — Dr. Kathirvel Alagesan</title>
+  <title>Laboratory GHS Pictogram &amp; Mixture Label Studio</title>
   <style id="dynamicPrintCss"></style>
   <style>
     :root {{
@@ -1480,10 +1480,10 @@ def generate_universal_html_app():
     .masthead {{
       background: var(--paper);
       border-bottom: 2px solid var(--rule-dark);
-      padding: 20px 28px 18px;
+      padding: 18px 28px 16px;
     }}
     .masthead-inner {{
-      max-width: 1360px;
+      max-width: 1380px;
       margin: 0 auto;
     }}
     .masthead-meta {{
@@ -1496,17 +1496,9 @@ def generate_universal_html_app():
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--ink-secondary);
-      padding-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 14px;
-    }}
-    .credit-pill {{
-      background: var(--ink);
-      color: var(--paper);
-      padding: 3px 10px;
-      border-radius: 2px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
+      margin-bottom: 12px;
     }}
     .masthead-main {{
       display: flex;
@@ -1517,7 +1509,7 @@ def generate_universal_html_app():
     }}
     .masthead h1 {{
       font-family: var(--serif);
-      font-size: 34px;
+      font-size: 32px;
       font-weight: 700;
       letter-spacing: -0.02em;
       line-height: 1.1;
@@ -1525,10 +1517,10 @@ def generate_universal_html_app():
       color: var(--ink);
     }}
     .masthead-sub {{
-      margin: 6px 0 0;
+      margin: 5px 0 0;
       font-family: var(--serif);
       font-style: italic;
-      font-size: 15.5px;
+      font-size: 15px;
       color: var(--ink-secondary);
     }}
     .masthead-actions {{
@@ -1539,12 +1531,12 @@ def generate_universal_html_app():
 
     /* Layout Grid */
     .workspace-grid {{
-      max-width: 1360px;
-      margin: 24px auto 40px;
+      max-width: 1380px;
+      margin: 22px auto 32px;
       padding: 0 28px;
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 28px;
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: 26px;
       align-items: start;
     }}
     @media (max-width: 1024px) {{
@@ -1556,7 +1548,7 @@ def generate_universal_html_app():
       background: var(--surface);
       border: 1px solid var(--rule);
       box-shadow: 0 1px 2px rgba(20, 20, 19, 0.04);
-      padding: 22px 24px;
+      padding: 20px 22px;
     }}
     .ed-section-header {{
       display: flex;
@@ -1565,7 +1557,7 @@ def generate_universal_html_app():
       align-items: baseline;
       border-bottom: 1.5px solid var(--ink);
       padding-bottom: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       gap: 8px;
     }}
     .ed-section-num {{
@@ -1579,7 +1571,7 @@ def generate_universal_html_app():
     }}
     .ed-section-title {{
       font-family: var(--serif);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 700;
       margin: 0;
       color: var(--ink);
@@ -1598,7 +1590,7 @@ def generate_universal_html_app():
     }}
     input[type="text"], input[type="number"], select {{
       width: 100%;
-      padding: 8px 10px;
+      padding: 7px 10px;
       border: 1px solid var(--rule);
       border-radius: 2px;
       font-family: var(--sans);
@@ -1618,7 +1610,7 @@ def generate_universal_html_app():
       cursor: pointer;
       border: 1px solid var(--ink);
       border-radius: 2px;
-      padding: 8px 14px;
+      padding: 7px 13px;
       font-family: var(--sans);
       font-size: 12.5px;
       font-weight: 600;
@@ -1628,6 +1620,10 @@ def generate_universal_html_app():
       gap: 6px;
       transition: all 0.15s;
       white-space: nowrap;
+    }}
+    .btn:disabled {{
+      opacity: 0.55;
+      cursor: wait;
     }}
     .btn-ink {{
       background: var(--ink);
@@ -1662,8 +1658,8 @@ def generate_universal_html_app():
       background: var(--blue-soft);
       border: 1px solid #c5d4e6;
       border-left: 3.5px solid var(--blue-editorial);
-      padding: 14px;
-      margin-bottom: 18px;
+      padding: 13px 14px;
+      margin-bottom: 16px;
     }}
     .cas-help-note {{
       font-size: 11.5px;
@@ -1688,10 +1684,79 @@ def generate_universal_html_app():
       color: var(--ink);
       transition: all 0.12s;
     }}
-    .chip:hover {{
+    .chip:hover, .chip.active-chip {{
       background: var(--ink);
       color: var(--paper);
       border-color: var(--ink);
+    }}
+
+    /* Inbuilt Label Quick-Pick Bank */
+    .inbuilt-bank {{
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }}
+    .tab-bar {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 9px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--rule);
+      align-items: center;
+      justify-content: space-between;
+    }}
+    .tab-btn {{
+      cursor: pointer;
+      border: 1px solid var(--rule);
+      background: #ffffff;
+      color: var(--ink-secondary);
+      padding: 3px 9px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }}
+    .tab-btn.active {{
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }}
+    .preset-pills-wrap {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      max-height: 155px;
+      overflow-y: auto;
+      padding-right: 2px;
+    }}
+    .preset-pill {{
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      padding: 4px 9px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink);
+      transition: all 0.12s;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }}
+    .preset-pill:hover {{
+      background: var(--blue-editorial);
+      color: #ffffff;
+      border-color: var(--blue-editorial);
+    }}
+    .preset-pill .pill-num {{
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+    }}
+    .preset-pill:hover .pill-num {{
+      color: #cbd5e1;
     }}
 
     /* Component Rows */
@@ -1774,39 +1839,122 @@ def generate_universal_html_app():
       color: var(--accent);
     }}
 
-    /* Print Queue Section */
+    /* Section III: A4 / Multi-Page Print Sheet Studio */
     .queue-section {{
-      max-width: 1360px;
+      max-width: 1380px;
       margin: 0 auto 48px;
       padding: 0 28px;
     }}
-    .queue-grid {{
+    .sheet-setup-grid {{
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr 0.8fr 1fr auto;
+      gap: 10px;
+      align-items: end;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }}
+    @media (max-width: 960px) {{
+      .sheet-setup-grid {{ grid-template-columns: 1fr 1fr; }}
+    }}
+    .sheet-status-banner {{
+      margin-top: 12px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-left: 3.5px solid var(--green-editorial);
+      padding: 8px 12px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink);
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 16px;
-    }}
-    .queue-card {{
-      background: #ffffff;
-      border: 1px solid var(--rule);
-      padding: 12px;
-      width: calc(50% - 8px);
-    }}
-    .queue-card-bar {{
-      display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
+    }}
+    .sheets-workbench {{
+      background: #d8d3c6;
+      border: 1px solid #bfb9aa;
+      padding: 24px 16px;
+      overflow-x: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }}
+    .sheet-wrapper {{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }}
+    .sheet-caption {{
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--ink-secondary);
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--paper);
+      border: 1px solid var(--rule-dark);
+      padding: 4px 12px;
       margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--paper-deep);
+      letter-spacing: 0.05em;
+    }}
+    .print-sheet-page {{
+      background: #ffffff;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(20, 20, 19, 0.18);
+      border: 1px solid #b5b0a3;
+      overflow: hidden;
+      flex-shrink: 0;
+    }}
+    .sheet-margin-guide {{
+      position: absolute;
+      border: 1px dashed rgba(30, 58, 95, 0.22);
+      pointer-events: none;
+    }}
+    .placed-label-slot {{
+      position: absolute;
+      box-sizing: border-box;
+    }}
+    .placed-label-slot.crop-dashed {{
+      outline: 0.35mm dashed #94a3b8;
+      outline-offset: 0.4mm;
+    }}
+    .placed-label-slot svg {{
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }}
+    .slot-toolbar {{
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      display: none;
+      gap: 3px;
+      z-index: 5;
+      background: rgba(20, 20, 19, 0.85);
+      padding: 2px 4px;
+      border-radius: 2px;
+    }}
+    .placed-label-slot:hover .slot-toolbar {{
+      display: inline-flex;
+    }}
+    .slot-mini-btn {{
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 5px;
+    }}
+    .slot-mini-btn:hover {{
+      background: var(--accent);
     }}
 
     /* Editorial Colophon Footer */
     .colophon {{
-      max-width: 1360px;
+      max-width: 1380px;
       margin: 40px auto 32px;
       padding: 20px 28px 0;
       border-top: 2px solid var(--ink);
@@ -1828,55 +1976,79 @@ def generate_universal_html_app():
     .grid-3 {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }}
 
     @media print {{
-      body {{ background: #fff; }}
-      .masthead, .no-print, .colophon {{ display: none !important; }}
-      .queue-section {{ margin: 0; padding: 0; max-width: 100%; }}
-      .queue-grid {{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4mm;
-        margin: 0;
+      html, body {{
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }}
-      .queue-card {{
-        border: none;
-        box-shadow: none;
-        padding: 0;
-        page-break-inside: avoid;
-        break-inside: avoid;
+      .masthead, .no-print, .colophon, .sheet-caption, .sheet-margin-guide, .slot-toolbar {{
+        display: none !important;
       }}
-      .queue-card-bar {{ display: none !important; }}
+      .queue-section {{
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: none !important;
+      }}
+      .sheets-workbench {{
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 0 !important;
+        display: block !important;
+        overflow: visible !important;
+      }}
+      .sheet-wrapper {{
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }}
+      .print-sheet-page {{
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }}
+      .sheet-wrapper:last-child .print-sheet-page {{
+        page-break-after: auto !important;
+        break-after: auto !important;
+      }}
     }}
   </style>
 </head>
 <body>
-  <!-- Editorial Masthead -->
+  <!-- Editorial Masthead (Clean header without top credit pill) -->
   <header class="masthead">
     <div class="masthead-inner">
       <div class="masthead-meta">
         <span>LABORATORY SAFETY &amp; CHEMICAL HYGIENE MONOGRAPH • UNECE GHS / EU CLP (EC) NO 1272/2008</span>
-        <span class="credit-pill">CREDIT: DR. KATHIRVEL ALAGESAN</span>
+        <span>OFFICIAL UNECE VECTOR PICTOGRAMS • CALIBRATED A4 &amp; PDF LABEL PRESS</span>
       </div>
       <div class="masthead-main">
         <div>
           <h1>Laboratory GHS Pictogram &amp; Mixture Label Studio</h1>
-          <p class="masthead-sub">Composition-driven hazard classification, live NCBI PubChem CAS lookup, and calibrated physical label press. Conceived &amp; developed by <strong>Dr. Kathirvel Alagesan</strong>.</p>
+          <p class="masthead-sub">Composition-driven hazard classification, 38 inbuilt laboratory buffer presets, live NCBI PubChem CAS lookup, and anti-clip A4 / PDF sheet press.</p>
         </div>
         <div class="masthead-actions">
-          <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Load All 18 Standard Buffers to Sheet</button>
-          <button class="btn btn-paper" onclick="addCurrentToQueue()">➕ Queue Current Label (<span id="queueCount">0</span>)</button>
-          <button class="btn btn-ink" onclick="printCurrentOrQueue()">🖨️ Print Label / Sheet</button>
+          <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Load 18 Core Buffers to A4 Sheet</button>
+          <button class="btn btn-paper" onclick="addCurrentToQueue(1)">➕ Add Label to Sheet (<span id="queueCount">0</span>)</button>
+          <button class="btn btn-accent" id="topPdfBtn" onclick="exportSheetsToPDF()">⬇️ Export Sheet PDF</button>
+          <button class="btn btn-ink" onclick="printCurrentOrQueue()">🖨️ Print A4 Sheet</button>
         </div>
       </div>
     </div>
   </header>
 
   <div class="workspace-grid no-print">
-    <!-- Left Column: Formulation & CAS Registry -->
+    <!-- Left Column: Formulation, 38 Inbuilt Presets & CAS Registry -->
     <div class="ed-card">
       <div class="ed-section-header">
         <div>
           <span class="ed-section-num">Section I</span>
-          <h2 class="ed-section-title" style="display:inline;">Formulation &amp; Reagent Registry</h2>
+          <h2 class="ed-section-title" style="display:inline;">Formulation &amp; Inbuilt Buffer Library</h2>
         </div>
         <select id="modeSelect" onchange="recalculate()" style="width:auto; font-family:var(--mono); font-size:11px; font-weight:700;">
           <option value="reg">Classification: Strict CLP Cutoffs</option>
@@ -1885,7 +2057,7 @@ def generate_universal_html_app():
       </div>
 
       <!-- Layout & Physical Print Size -->
-      <div class="grid-2" style="margin-bottom:16px; background:var(--paper); padding:12px; border:1px solid var(--rule);">
+      <div class="grid-2" style="margin-bottom:14px; background:var(--paper); padding:11px 12px; border:1px solid var(--rule);">
         <div>
           <label class="field-label">Label Format Style</label>
           <select id="layoutSelect" onchange="renderPreview()" style="font-weight:600;">
@@ -1894,7 +2066,7 @@ def generate_universal_html_app():
           </select>
         </div>
         <div>
-          <label class="field-label">Calibrated Physical Print Size</label>
+          <label class="field-label">Calibrated Physical Label Size</label>
           <select id="sizePreset" onchange="onSizeChange()" style="font-weight:600;">
             <option value="100x60">Large Bottle (500–1000 mL): 100 × 60 mm (3.94" × 2.36")</option>
             <option value="80x45" selected>Medium Bottle (250–500 mL): 80 × 45 mm (3.15" × 1.77")</option>
@@ -1907,6 +2079,39 @@ def generate_universal_html_app():
             <span>×</span>
             <input type="number" id="customH" value="45" min="15" max="150" oninput="renderPreview()" placeholder="H (mm)" />
             <span style="font-family:var(--mono); font-size:11px;">mm</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inbuilt Solution & Buffer Quick-Pick Bank (All 38 Presets Restored!) -->
+      <div class="inbuilt-bank">
+        <div class="tab-bar">
+          <div style="display:flex; flex-wrap:wrap; gap:4px; align-items:center;">
+            <span style="font-family:var(--mono); font-size:10.5px; font-weight:700; color:var(--ink); margin-right:4px;">INBUILT LABELS (38):</span>
+            <button type="button" class="tab-btn active" id="tab_core18" onclick="setPresetTab('core18')">Core 18 LC-MS &amp; Solvents</button>
+            <button type="button" class="tab-btn" id="tab_lcms" onclick="setPresetTab('lcms')">Extra LC-MS (6)</button>
+            <button type="button" class="tab-btn" id="tab_proteomics" onclick="setPresetTab('proteomics')">Proteomics &amp; Lysis (7)</button>
+            <button type="button" class="tab-btn" id="tab_bio" onclick="setPresetTab('bio')">Gels, Fixatives &amp; Stocks (7)</button>
+            <button type="button" class="tab-btn" id="tab_all" onclick="setPresetTab('all')">All 38</button>
+          </div>
+          <button type="button" class="btn btn-paper" style="padding:3px 8px; font-size:11px; background:#fff;" onclick="queueActivePresetTab()">
+            + Queue This Tab to Sheet
+          </button>
+        </div>
+        <div id="presetPillsContainer" class="preset-pills-wrap"></div>
+      </div>
+
+      <!-- Dropdown Selector + Free-Text Formula Parser -->
+      <div class="grid-2" style="margin-bottom:14px;">
+        <div>
+          <label class="field-label">Inbuilt Buffer Dropdown (All 38 Presets)</label>
+          <select id="preset18Select" onchange="onPickStandard18(this.value)"></select>
+        </div>
+        <div>
+          <label class="field-label">Free-Text Formula Parser (Names or CAS)</label>
+          <div style="display:flex; gap:6px;">
+            <input type="text" id="formulaInput" value="1% TFA, 80% ACN" placeholder="e.g. 6 M GdnHCl, 50 mM Tris  or  80% 75-05-8" onkeydown="if(event.key==='Enter') parseFormulaInput()" />
+            <button class="btn btn-ink" style="padding:7px 12px;" onclick="parseFormulaInput()">Parse</button>
           </div>
         </div>
       </div>
@@ -1940,69 +2145,33 @@ def generate_universal_html_app():
           </span>
         </div>
         <div class="chip-row">
-          <span style="font-family:var(--mono); font-size:10.5px; font-weight:700; color:var(--blue-editorial);">SAMPLE CAS:</span>
+          <span style="font-family:var(--mono); font-size:10.5px; font-weight:700; color:var(--blue-editorial);">QUICK CAS:</span>
           <button class="chip" onclick="quickCasTest('75-05-8', 100, '% v/v')">75-05-8 (ACN)</button>
           <button class="chip" onclick="quickCasTest('67-56-1', 100, '% v/v')">67-56-1 (Methanol)</button>
+          <button class="chip" onclick="quickCasTest('64-17-5', 100, '% v/v')">64-17-5 (Ethanol)</button>
+          <button class="chip" onclick="quickCasTest('67-63-0', 100, '% v/v')">67-63-0 (IPA)</button>
           <button class="chip" onclick="quickCasTest('76-05-1', 1, '% v/v')">76-05-1 (1% TFA)</button>
+          <button class="chip" onclick="quickCasTest('64-18-6', 1, '% v/v')">64-18-6 (1% FA)</button>
+          <button class="chip" onclick="quickCasTest('67-68-5', 100, '% v/v')">67-68-5 (DMSO)</button>
+          <button class="chip" onclick="quickCasTest('67-64-1', 100, '% v/v')">67-64-1 (Acetone)</button>
+          <button class="chip" onclick="quickCasTest('67-66-3', 100, '% v/v')">67-66-3 (Chloroform)</button>
           <button class="chip" onclick="quickCasTest('123-91-1', 100, '% v/v')">123-91-1 (1,4-Dioxane)</button>
           <button class="chip" onclick="quickCasTest('1239-45-8', 1, '% w/v')">1239-45-8 (EtBr)</button>
           <button class="chip" onclick="quickCasTest('7664-39-3', 5, '% v/v')">7664-39-3 (5% HF)</button>
+          <button class="chip" onclick="quickCasTest('26628-22-8', 1, '% w/v')">26628-22-8 (NaN₃)</button>
           <button class="chip" onclick="quickCasTest('109-89-7', 100, '% v/v')">109-89-7 (Live PubChem)</button>
         </div>
         <div id="casLookupCard" style="display:none; margin-top:10px; background:#ffffff; border:1px solid var(--rule); padding:10px 12px; font-size:12px;"></div>
       </div>
 
-      <!-- Standard 18 Presets + Formula Bar -->
-      <div class="grid-2" style="margin-bottom:12px;">
-        <div>
-          <label class="field-label">Standard LC-MS &amp; Solvent Presets (18)</label>
-          <select id="preset18Select" onchange="onPickStandard18(this.value)">
-            <option value="">— Select from 18 Standard Buffers &amp; Solvents —</option>
-            <optgroup label="Group 1: Aqueous TFA &amp; FA Buffers">
-              <option value="1% TFA|TFA, 1%">1. TFA, 1%</option>
-              <option value="0.1% TFA|TFA, 0.1%">2. TFA, 0.1%</option>
-              <option value="1% FA|FA, 1%">3. FA, 1%</option>
-              <option value="0.1% FA|FA, 0.1%">4. FA, 0.1%</option>
-            </optgroup>
-            <optgroup label="Group 2: 80% ACN Mobile Phases">
-              <option value="1% TFA, 80% ACN|1% TFA, 80% ACN">5. 1% TFA, 80% ACN</option>
-              <option value="0.1% TFA, 80% ACN|0.1% TFA, 80% ACN">6. 0.1% TFA, 80% ACN</option>
-              <option value="1% FA, 80% ACN|1% FA, 80% ACN">7. 1% FA, 80% ACN</option>
-              <option value="0.1% FA, 80% ACN|0.1% FA, 80% ACN">8. 0.1% FA, 80% ACN</option>
-            </optgroup>
-            <optgroup label="Group 3: 10% DMSO + Acid Buffers">
-              <option value="10% DMSO, 1% TFA|10% DMSO + 1% TFA">9. 10% DMSO + 1% TFA</option>
-              <option value="10% DMSO, 0.1% TFA|10% DMSO + 0.1% TFA">10. 10% DMSO + 0.1% TFA</option>
-              <option value="10% DMSO, 1% FA|10% DMSO + 1% FA">11. 10% DMSO + 1% FA</option>
-              <option value="10% DMSO, 0.1% FA|10% DMSO + 0.1% FA">12. 10% DMSO + 0.1% FA</option>
-            </optgroup>
-            <optgroup label="Group 4: Pure Solvents &amp; Cellulose">
-              <option value="100% ACN|100% ACN">13. 100% ACN</option>
-              <option value="100% ACN|Acetonitrile">14. Acetonitrile</option>
-              <option value="100% Ethanol|Ethanol">15. Ethanol</option>
-              <option value="100% Methanol|Methanol">16. Methanol</option>
-              <option value="100% Isopropanol|Isopropanol">17. Isopropanol</option>
-              <option value="100% Cellulose|Cellulose">18. Cellulose</option>
-            </optgroup>
-          </select>
-        </div>
-        <div>
-          <label class="field-label">Free-Text Formula Parser (Names or CAS)</label>
-          <div style="display:flex; gap:6px;">
-            <input type="text" id="formulaInput" value="1% TFA, 80% ACN" placeholder="e.g. 6 M GdnHCl, 50 mM Tris  or  80% 75-05-8" onkeydown="if(event.key==='Enter') parseFormulaInput()" />
-            <button class="btn btn-ink" style="padding:7px 12px;" onclick="parseFormulaInput()">Parse</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Active Mixture Ingredients Table -->
-      <div style="display:flex; justify-content:space-between; align-items:center; margin: 14px 0 8px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin: 12px 0 8px;">
         <span class="field-label" style="margin:0;">Active Solution Ingredients (Aqueous balance = H₂O)</span>
         <button class="btn btn-paper" style="padding:4px 10px; font-size:11.5px;" onclick="addRow()">+ Add Ingredient Row</button>
       </div>
       <div id="rowsContainer"></div>
 
-      <hr style="border:none; border-top:1px solid var(--rule); margin:16px 0;" />
+      <hr style="border:none; border-top:1px solid var(--rule); margin:14px 0;" />
 
       <!-- Label Text & Write-In Metadata -->
       <div class="grid-2" style="margin-bottom:10px;">
@@ -2056,9 +2225,14 @@ def generate_universal_html_app():
           <span class="ed-section-num">Section II</span>
           <h2 class="ed-section-title" style="display:inline;">Label Specimen Proof</h2>
         </div>
-        <div style="display:flex; gap:6px;">
-          <button class="btn btn-paper" style="padding:6px 11px; font-size:12px;" onclick="addCurrentToQueue()">➕ Add to Print Sheet</button>
-          <button class="btn btn-accent" style="padding:6px 12px; font-size:12px;" onclick="downloadCurrentSVG()">⬇️ Export Vector SVG</button>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+          <div style="display:inline-flex; align-items:center; gap:4px; background:var(--paper); border:1px solid var(--rule); padding:2px 6px;">
+            <span style="font-family:var(--mono); font-size:10px; font-weight:700;">COPIES:</span>
+            <input type="number" id="addCopiesInput" value="1" min="1" max="50" style="width:46px; padding:3px 5px; font-size:12px; background:#fff;" />
+          </div>
+          <button class="btn btn-paper" style="padding:6px 10px; font-size:12px;" onclick="addCurrentToQueue()">➕ Add to Print Sheet</button>
+          <button class="btn btn-paper" style="padding:6px 10px; font-size:12px;" onclick="fillOneSheetWithCurrent()" title="Add enough copies of this label to fill 1 full page">📄 Fill 1 Page</button>
+          <button class="btn btn-accent" style="padding:6px 11px; font-size:12px;" onclick="downloadCurrentSVG()">⬇️ Export SVG</button>
         </div>
       </div>
 
@@ -2079,25 +2253,81 @@ def generate_universal_html_app():
     </div>
   </div>
 
-  <!-- Section III: Multi-Label Print Sheet Queue -->
+  <!-- Section III: Calibrated A4 / Letter / Roll Print Sheet & PDF Export Studio -->
   <div class="queue-section">
-    <div class="ed-card no-print" style="margin-bottom:14px;">
+    <div class="ed-card no-print" style="margin-bottom:16px;">
       <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;">
         <div>
           <span class="ed-section-num">Section III</span>
-          <h2 class="ed-section-title" style="display:inline;">Press Sheet Queue (<span id="queueHeaderCount">0</span> Labels)</h2>
+          <h2 class="ed-section-title" style="display:inline;">Calibrated A4 Print Sheet &amp; PDF Press (<span id="queueHeaderCount">0</span> Labels)</h2>
           <p style="margin:4px 0 0; font-size:12.5px; color:var(--ink-secondary);">
-            Queue custom mixtures or load all 18 standard buffers, then print at <strong>100% (Actual Size)</strong> for exact millimeter output.
+            Automatic anti-clip page pagination packs labels onto exact physical sheets so no label is ever cut across a page break.
           </p>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
-          <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Add All 18 Standard Buffers</button>
+          <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Add 18 Core Buffers</button>
+          <button class="btn btn-paper" onclick="syncQueueSizesToCurrent()" title="Resize all labels currently on the sheet to match the selected Physical Label Size">🔄 Resize Sheet Labels to Current Size</button>
           <button class="btn btn-paper" onclick="clearQueue()">🗑️ Clear Sheet</button>
-          <button class="btn btn-ink" onclick="window.print()">🖨️ Print Sheet / Save as PDF</button>
+          <button class="btn btn-accent" id="sheetPdfBtn" onclick="exportSheetsToPDF()">⬇️ Download Multi-Page PDF (300 DPI)</button>
+          <button class="btn btn-ink" onclick="printCurrentOrQueue()">🖨️ Print Sheet / Save Vector PDF</button>
         </div>
       </div>
+
+      <!-- Page Format, Margins, Gap & Cut Guide Selector Bar -->
+      <div class="sheet-setup-grid">
+        <div>
+          <label class="field-label">Print Page Size &amp; Orientation</label>
+          <select id="pageFormatSelect" onchange="renderQueue()" style="font-weight:600;">
+            <option value="a4-portrait" selected>A4 Portrait — 210 × 297 mm (Default)</option>
+            <option value="a4-landscape">A4 Landscape — 297 × 210 mm</option>
+            <option value="letter-portrait">US Letter Portrait — 215.9 × 279.4 mm (8.5" × 11")</option>
+            <option value="letter-landscape">US Letter Landscape — 279.4 × 215.9 mm (11" × 8.5")</option>
+            <option value="a5-portrait">A5 Portrait — 148 × 210 mm</option>
+            <option value="a5-landscape">A5 Landscape — 210 × 148 mm</option>
+            <option value="single-label">Single Label / Roll Printer — 1 Label per Page</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Sheet Safe Margin</label>
+          <select id="pageMarginSelect" onchange="renderQueue()">
+            <option value="10" selected>10 mm (Standard Printer Margin)</option>
+            <option value="6">6 mm (Narrow Margin — Max Fit)</option>
+            <option value="4">4 mm (Ultra-Narrow — 2× 100mm on A4)</option>
+            <option value="12">12 mm (Wide Margin)</option>
+            <option value="0">0 mm (Borderless / Roll)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Gap Between Labels</label>
+          <select id="pageGapSelect" onchange="renderQueue()">
+            <option value="4" selected>4 mm (Standard Scissor Gap)</option>
+            <option value="2">2 mm (Compact Gap)</option>
+            <option value="0">0 mm (Flush Grid / Trimmer)</option>
+            <option value="6">6 mm (Wide Gap)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">Scissor Cut Guides</label>
+          <select id="cropGuideSelect" onchange="renderQueue()">
+            <option value="dashed" selected>Dashed Cut Outline</option>
+            <option value="none">Clean (Label Border Only)</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label">On-Screen Sheet Zoom</label>
+          <select id="sheetZoomSelect" onchange="renderQueue()">
+            <option value="0.72">Compact Preview (72%)</option>
+            <option value="0.88" selected>Standard Preview (88%)</option>
+            <option value="1.0">Actual 1:1 Size (100%)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="sheetStatusBanner" class="sheet-status-banner"></div>
     </div>
-    <div id="queueGrid" class="queue-grid"></div>
+
+    <!-- Paginated Physical Sheets Container -->
+    <div id="sheetsWorkbench" class="sheets-workbench"></div>
   </div>
 
   <!-- Editorial Colophon Footer -->
@@ -2116,27 +2346,58 @@ def generate_universal_html_app():
     const SYMBOLS = {symbols_json};
     const CHEM_DB = {chemdb_json};
 
-    const PRESET_18_LIST = [
-      ["1% TFA", "TFA, 1%"],
-      ["0.1% TFA", "TFA, 0.1%"],
-      ["1% FA", "FA, 1%"],
-      ["0.1% FA", "FA, 0.1%"],
-      ["1% TFA, 80% ACN", "1% TFA, 80% ACN"],
-      ["0.1% TFA, 80% ACN", "0.1% TFA, 80% ACN"],
-      ["1% FA, 80% ACN", "1% FA, 80% ACN"],
-      ["0.1% FA, 80% ACN", "0.1% FA, 80% ACN"],
-      ["10% DMSO, 1% TFA", "10% DMSO + 1% TFA"],
-      ["10% DMSO, 0.1% TFA", "10% DMSO + 0.1% TFA"],
-      ["10% DMSO, 1% FA", "10% DMSO + 1% FA"],
-      ["10% DMSO, 0.1% FA", "10% DMSO + 0.1% FA"],
-      ["100% ACN", "100% ACN"],
-      ["100% ACN", "Acetonitrile"],
-      ["100% Ethanol", "Ethanol"],
-      ["100% Methanol", "Methanol"],
-      ["100% Isopropanol", "Isopropanol"],
-      ["100% Cellulose", "Cellulose"]
+    // Complete 38 Inbuilt Laboratory Solutions & Buffers across 4 categories
+    const INBUILT_PRESETS = [
+      // Core 18 LC-MS & Solvents (Groups 1-4)
+      {{ num: 1,  tab: "core18", group: "Group 1: Aqueous TFA & FA Buffers", formula: "1% TFA", title: "TFA, 1%" }},
+      {{ num: 2,  tab: "core18", group: "Group 1: Aqueous TFA & FA Buffers", formula: "0.1% TFA", title: "TFA, 0.1%" }},
+      {{ num: 3,  tab: "core18", group: "Group 1: Aqueous TFA & FA Buffers", formula: "1% FA", title: "FA, 1%" }},
+      {{ num: 4,  tab: "core18", group: "Group 1: Aqueous TFA & FA Buffers", formula: "0.1% FA", title: "FA, 0.1%" }},
+      {{ num: 5,  tab: "core18", group: "Group 2: 80% ACN Mobile Phases", formula: "1% TFA, 80% ACN", title: "1% TFA, 80% ACN" }},
+      {{ num: 6,  tab: "core18", group: "Group 2: 80% ACN Mobile Phases", formula: "0.1% TFA, 80% ACN", title: "0.1% TFA, 80% ACN" }},
+      {{ num: 7,  tab: "core18", group: "Group 2: 80% ACN Mobile Phases", formula: "1% FA, 80% ACN", title: "1% FA, 80% ACN" }},
+      {{ num: 8,  tab: "core18", group: "Group 2: 80% ACN Mobile Phases", formula: "0.1% FA, 80% ACN", title: "0.1% FA, 80% ACN" }},
+      {{ num: 9,  tab: "core18", group: "Group 3: 10% DMSO + Acid Buffers", formula: "10% DMSO, 1% TFA", title: "10% DMSO + 1% TFA" }},
+      {{ num: 10, tab: "core18", group: "Group 3: 10% DMSO + Acid Buffers", formula: "10% DMSO, 0.1% TFA", title: "10% DMSO + 0.1% TFA" }},
+      {{ num: 11, tab: "core18", group: "Group 3: 10% DMSO + Acid Buffers", formula: "10% DMSO, 1% FA", title: "10% DMSO + 1% FA" }},
+      {{ num: 12, tab: "core18", group: "Group 3: 10% DMSO + Acid Buffers", formula: "10% DMSO, 0.1% FA", title: "10% DMSO + 0.1% FA" }},
+      {{ num: 13, tab: "core18", group: "Group 4: Pure Solvents & Cellulose", formula: "100% ACN", title: "100% ACN" }},
+      {{ num: 14, tab: "core18", group: "Group 4: Pure Solvents & Cellulose", formula: "100% ACN", title: "Acetonitrile" }},
+      {{ num: 15, tab: "core18", group: "Group 4: Pure Solvents & Cellulose", formula: "100% Ethanol", title: "Ethanol" }},
+      {{ num: 16, tab: "core18", group: "Group 4: Pure Solvents & Cellulose", formula: "100% Methanol", title: "Methanol" }},
+      {{ num: 17, tab: "core18", group: "Group 4: Pure Solvents & Cellulose", formula: "100% Isopropanol", title: "Isopropanol" }},
+      {{ num: 18, tab: "core18", group: "Group 4: Pure Solvents & Cellulose", formula: "100% Cellulose", title: "Cellulose" }},
+
+      // Extra LC-MS & HPLC Phases (Group 5)
+      {{ num: 19, tab: "lcms", group: "Group 5: Extra LC-MS & HPLC Mobile Phases", formula: "80% ACN, 10% DMSO, 0.1% FA", title: "80% ACN + 10% DMSO + 0.1% FA" }},
+      {{ num: 20, tab: "lcms", group: "Group 5: Extra LC-MS & HPLC Mobile Phases", formula: "50% ACN, 0.1% FA", title: "50% ACN, 0.1% FA" }},
+      {{ num: 21, tab: "lcms", group: "Group 5: Extra LC-MS & HPLC Mobile Phases", formula: "50% ACN, 0.1% TFA", title: "50% ACN, 0.1% TFA" }},
+      {{ num: 22, tab: "lcms", group: "Group 5: Extra LC-MS & HPLC Mobile Phases", formula: "2% ACN, 0.1% TFA", title: "2% ACN, 0.1% TFA (Loading A)" }},
+      {{ num: 23, tab: "lcms", group: "Group 5: Extra LC-MS & HPLC Mobile Phases", formula: "2% ACN, 0.1% FA", title: "2% ACN, 0.1% FA (Mobile Phase A)" }},
+      {{ num: 24, tab: "lcms", group: "Group 5: Extra LC-MS & HPLC Mobile Phases", formula: "90% ACN, 0.1% FA", title: "90% ACN, 0.1% FA (Mobile Phase B)" }},
+
+      // Proteomics & Lysis Buffers (Group 6)
+      {{ num: 25, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "6 M GdnHCl, 50 mM Tris, 10 mM TCEP, 40 mM CAA", title: "Proteomics Lysis (6M GdnHCl + TCEP + CAA)" }},
+      {{ num: 26, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "8 M Urea, 50 mM ABC, 10 mM DTT", title: "8M Urea Denaturing Buffer" }},
+      {{ num: 27, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "1% SDC, 100 mM Tris, 10 mM TCEP, 40 mM CAA", title: "SDC Lysis & Alkylation Buffer" }},
+      {{ num: 28, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "5% SDS, 50 mM Tris", title: "S-Trap Lysis Buffer (5% SDS)" }},
+      {{ num: 29, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "1% Triton X-100, 0.1% SDS, 150 mM NaCl, 50 mM Tris", title: "RIPA Lysis Buffer" }},
+      {{ num: 30, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "50 mM ABC", title: "50 mM Ammonium Bicarbonate (ABC)" }},
+      {{ num: 31, tab: "proteomics", group: "Group 6: Proteomics & Lysis Buffers", formula: "500 mM IAA", title: "500 mM Iodoacetamide (IAA Stock)" }},
+
+      // Gels, Fixatives & General Lab Stocks (Group 7)
+      {{ num: 32, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "4% SDS, 10% BME, 20% Glycerol, 125 mM Tris", title: "2x Laemmli Sample Buffer" }},
+      {{ num: 33, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "4% Formaldehyde, 1% Methanol", title: "4% PFA Fixative Solution" }},
+      {{ num: 34, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "40% Methanol, 10% AcOH", title: "Coomassie Destain Solution" }},
+      {{ num: 35, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "50% Phenol, 30% GITC", title: "TRIzol / Phenol-GITC Lysis" }},
+      {{ num: 36, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "500 mM Imidazole, 50 mM Tris, 300 mM NaCl", title: "His-Tag Elution (500 mM Imidazole)" }},
+      {{ num: 37, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "70% Ethanol", title: "70% Ethanol Spray" }},
+      {{ num: 38, tab: "bio", group: "Group 7: Gels, Fixatives & General Lab", formula: "1 M NaOH", title: "1 M NaOH Stock" }}
     ];
 
+    const PRESET_18_LIST = INBUILT_PRESETS.filter(p => p.tab === 'core18').map(p => [p.formula, p.title]);
+
+    let activePresetTab = 'core18';
     let rows = [];
     let manualPictos = null;
     let printQueue = [];
@@ -2163,6 +2424,56 @@ def generate_universal_html_app():
 
     function esc(s) {{
       return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }}
+
+    function initInbuiltPresetsUI() {{
+      const sel = document.getElementById('preset18Select');
+      if (sel) {{
+        const groups = [...new Set(INBUILT_PRESETS.map(p => p.group))];
+        let html = '<option value="">— Select from 38 Inbuilt Buffers, Solvents &amp; Stocks —</option>';
+        for (const g of groups) {{
+          const opts = INBUILT_PRESETS.filter(p => p.group === g).map(p =>
+            `<option value="${{esc(p.formula)}}|${{esc(p.title)}}">${{p.num}}. ${{esc(p.title)}}</option>`
+          ).join('');
+          html += `<optgroup label="${{esc(g)}}">${{opts}}</optgroup>`;
+        }}
+        sel.innerHTML = html;
+      }}
+      renderPresetPills();
+    }}
+
+    function setPresetTab(tabId) {{
+      activePresetTab = tabId;
+      for (const t of ['core18', 'lcms', 'proteomics', 'bio', 'all']) {{
+        const btn = document.getElementById('tab_' + t);
+        if (btn) btn.className = 'tab-btn' + (t === tabId ? ' active' : '');
+      }}
+      renderPresetPills();
+    }}
+
+    function renderPresetPills() {{
+      const holder = document.getElementById('presetPillsContainer');
+      if (!holder) return;
+      const list = activePresetTab === 'all'
+        ? INBUILT_PRESETS
+        : INBUILT_PRESETS.filter(p => p.tab === activePresetTab);
+      holder.innerHTML = list.map(p =>
+        `<button type="button" class="preset-pill" onclick="loadExample('${{esc(p.formula)}}','${{esc(p.title)}}')" title="Formula: ${{esc(p.formula)}}"><span class="pill-num">#${{p.num}}</span> ${{esc(p.title)}}</button>`
+      ).join('');
+    }}
+
+    function queueActivePresetTab() {{
+      const list = activePresetTab === 'all'
+        ? INBUILT_PRESETS
+        : INBUILT_PRESETS.filter(p => p.tab === activePresetTab);
+      const savedFormula = document.getElementById('formulaInput').value;
+      const savedTitle = document.getElementById('titleInput').value;
+      for (const p of list) {{
+        loadExample(p.formula, p.title);
+        addCurrentToQueue(1, false);
+      }}
+      loadExample(savedFormula, savedTitle);
+      renderQueue();
     }}
 
     function getDims() {{
@@ -2820,10 +3131,10 @@ def generate_universal_html_app():
       return `<svg x="${{x.toFixed(1)}}" y="${{y.toFixed(1)}}" width="${{size.toFixed(1)}}" height="${{size.toFixed(1)}}" viewBox="${{sym.viewBox}}">${{sym.svg}}</svg>`;
     }}
 
-    function buildCurrentSVG() {{
-      if (!currentCalculated) return '';
+    function getCurrentLabelSnapshot(customDims = null) {{
+      if (!currentCalculated) return null;
+      const dims = customDims || getDims();
       const layout = document.getElementById('layoutSelect').value;
-      const dims = getDims();
       const mode = document.getElementById('modeSelect').value;
       const overSig = document.getElementById('overrideSignal').value;
       const signal = overSig === 'AUTO' ? currentCalculated.signal : overSig;
@@ -2831,11 +3142,28 @@ def generate_universal_html_app():
         ? ['GHS01','GHS02','GHS03','GHS04','GHS05','GHS06','GHS07','GHS08','GHS09'].filter(c => manualPictos.has(c))
         : currentCalculated.pictograms;
 
-      const title = document.getElementById('titleInput').value || 'Custom Solution';
-      const subtitle = document.getElementById('subtitleInput').value || currentCalculated.composition;
-      const prepDate = document.getElementById('prepDate').value;
-      const prepBy = document.getElementById('prepBy').value;
-      const storage = document.getElementById('storageNote').value;
+      return {{
+        title: document.getElementById('titleInput').value || 'Custom Solution',
+        subtitle: document.getElementById('subtitleInput').value || currentCalculated.composition,
+        prepDate: document.getElementById('prepDate').value,
+        prepBy: document.getElementById('prepBy').value,
+        storage: document.getElementById('storageNote').value,
+        layout: layout,
+        mode: mode,
+        signal: signal,
+        pictos: [...pictos],
+        h_statements: [...currentCalculated.h_statements],
+        p_statements: [...currentCalculated.p_statements],
+        cas: currentCalculated.cas,
+        composition: currentCalculated.composition,
+        w: dims.w,
+        h: dims.h
+      }};
+    }}
+
+    function buildSVGFromSnapshot(snap) {{
+      if (!snap) return '';
+      const {{ title, subtitle, prepDate, prepBy, storage, layout, mode, signal, pictos, h_statements, p_statements, cas, composition, w, h }} = snap;
 
       let sigBg = '#16a34a';
       if (signal === 'DANGER') sigBg = '#d90000';
@@ -2871,7 +3199,7 @@ def generate_universal_html_app():
           `);
         }}
 
-        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="${{dims.w}}mm" height="${{dims.h}}mm" style="width:100%; height:auto; display:block;">
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="${{w}}mm" height="${{h}}mm" style="width:100%; height:100%; display:block;">
           <rect x="2" y="2" width="476" height="266" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
           <path d="M 12 3.5 L 468 3.5 C 473 3.5 476.5 7 476.5 12 L 476.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="${{sigBg}}"/>
           <text x="16" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#0f172a">${{esc(title)}}</text>
@@ -2934,7 +3262,7 @@ def generate_universal_html_app():
       let y = 96;
       textEls.push(`<text x="166" y="${{y}}" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#991b1b">HAZARD STATEMENTS:</text>`);
       y += 12;
-      for (const st of currentCalculated.h_statements) {{
+      for (const st of h_statements) {{
         for (const ln of wrapText(st, 58)) {{
           if (y < 178) {{
             textEls.push(`<text x="166" y="${{y}}" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">${{esc(ln)}}</text>`);
@@ -2945,7 +3273,7 @@ def generate_universal_html_app():
       y = Math.max(y + 4, 174);
       textEls.push(`<text x="166" y="${{y}}" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#1e40af">PRECAUTIONARY STATEMENTS:</text>`);
       y += 12;
-      for (const st of currentCalculated.p_statements) {{
+      for (const st of p_statements) {{
         for (const ln of wrapText(st, 58)) {{
           if (y < 252) {{
             textEls.push(`<text x="166" y="${{y}}" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">${{esc(ln)}}</text>`);
@@ -2956,12 +3284,12 @@ def generate_universal_html_app():
 
       const modeBadge = mode === 'reg' ? 'CLP/GHS Regulatory' : 'Conservative Lab EHS';
 
-      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="${{dims.w}}mm" height="${{dims.h}}mm" style="width:100%; height:auto; display:block;">
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="${{w}}mm" height="${{h}}mm" style="width:100%; height:100%; display:block;">
         <rect x="2" y="2" width="516" height="326" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2.5"/>
         <path d="M 12 3.5 L 508 3.5 C 513 3.5 516.5 7 516.5 12 L 516.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="${{sigBg}}"/>
         <text x="16" y="37" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#0f172a">${{esc(title)}}</text>
         <text x="16" y="53" font-family="Arial, sans-serif" font-size="10.2" font-weight="bold" fill="#334155">${{esc(subtitle)}}</text>
-        <text x="16" y="66" font-family="Arial, sans-serif" font-size="8.5" fill="#64748b">${{esc(currentCalculated.cas)}}  •  ${{esc(currentCalculated.composition)}}</text>
+        <text x="16" y="66" font-family="Arial, sans-serif" font-size="8.5" fill="#64748b">${{esc(cas)}}  •  ${{esc(composition)}}</text>
 
         <rect x="374" y="19" width="132" height="28" rx="5" fill="${{sigBg}}"/>
         <text x="440" y="37" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="0.8" fill="#ffffff">${{esc(signal)}}</text>
@@ -2990,23 +3318,16 @@ def generate_universal_html_app():
       </svg>`;
     }}
 
+    function buildCurrentSVG() {{
+      const snap = getCurrentLabelSnapshot();
+      return buildSVGFromSnapshot(snap);
+    }}
+
     function renderPreview() {{
       const dims = getDims();
       const inW = (dims.w / 25.4).toFixed(2);
       const inH = (dims.h / 25.4).toFixed(2);
       document.getElementById('dimReadout').textContent = `${{dims.w}} × ${{dims.h}} mm (${{inW}}" × ${{inH}}")`;
-      document.getElementById('dynamicPrintCss').textContent = `
-        @media print {{
-          .queue-card {{
-            width: ${{dims.w}}mm !important;
-            height: ${{dims.h}}mm !important;
-          }}
-          .queue-card svg {{
-            width: ${{dims.w}}mm !important;
-            height: ${{dims.h}}mm !important;
-          }}
-        }}
-      `;
       const svg = buildCurrentSVG();
       document.getElementById('svgPreviewBox').innerHTML = svg;
       const ul = document.getElementById('auditList');
@@ -3031,11 +3352,168 @@ def generate_universal_html_app():
       URL.revokeObjectURL(url);
     }}
 
-    function addCurrentToQueue() {{
+    // --- A4 / Multi-Page Print Sheet Pagination & PDF Engine ---
+    function getPageSpec() {{
+      const fmtEl = document.getElementById('pageFormatSelect');
+      const fmt = fmtEl ? fmtEl.value : 'a4-portrait';
+      const margin = parseFloat((document.getElementById('pageMarginSelect') || {{value:'10'}}).value) || 0;
+      const gap = parseFloat((document.getElementById('pageGapSelect') || {{value:'4'}}).value) || 0;
+      const crop = (document.getElementById('cropGuideSelect') || {{value:'dashed'}}).value;
+      const zoom = parseFloat((document.getElementById('sheetZoomSelect') || {{value:'0.88'}}).value) || 0.88;
+
+      const specs = {{
+        'a4-portrait':      {{ pageW: 210,   pageH: 297,   label: 'A4 Portrait (210 × 297 mm)', cssPage: '210mm 297mm' }},
+        'a4-landscape':     {{ pageW: 297,   pageH: 210,   label: 'A4 Landscape (297 × 210 mm)', cssPage: '297mm 210mm' }},
+        'letter-portrait':  {{ pageW: 215.9, pageH: 279.4, label: 'US Letter Portrait (215.9 × 279.4 mm)', cssPage: '215.9mm 279.4mm' }},
+        'letter-landscape': {{ pageW: 279.4, pageH: 215.9, label: 'US Letter Landscape (279.4 × 215.9 mm)', cssPage: '279.4mm 215.9mm' }},
+        'a5-portrait':      {{ pageW: 148,   pageH: 210,   label: 'A5 Portrait (148 × 210 mm)', cssPage: '148mm 210mm' }},
+        'a5-landscape':     {{ pageW: 210,   pageH: 148,   label: 'A5 Landscape (210 × 148 mm)', cssPage: '210mm 148mm' }},
+        'single-label':     {{ pageW: 0,     pageH: 0,     label: 'Single Label / Roll Printer (1 per page)', cssPage: 'auto' }}
+      }};
+      return {{ fmt, margin, gap, crop, zoom, ...(specs[fmt] || specs['a4-portrait']) }};
+    }}
+
+    function calcLabelsPerSheetForDims(dims, spec) {{
+      if (spec.fmt === 'single-label') return {{ cols: 1, rows: 1, perSheet: 1 }};
+      const usableW = Math.max(10, spec.pageW - 2 * spec.margin);
+      const usableH = Math.max(10, spec.pageH - 2 * spec.margin);
+      const cols = Math.max(1, Math.floor((usableW + spec.gap + 0.05) / (dims.w + spec.gap)));
+      const rows = Math.max(1, Math.floor((usableH + spec.gap + 0.05) / (dims.h + spec.gap)));
+      return {{ cols, rows, perSheet: cols * rows }};
+    }}
+
+    function paginateQueue(items, spec) {{
+      if (!items.length) return [];
+      if (spec.fmt === 'single-label') {{
+        return items.map((item, idx) => ({{
+          pageW: item.w,
+          pageH: item.h,
+          margin: 0,
+          placements: [{{ idx, item, x: 0, y: 0, w: item.w, h: item.h }}]
+        }}));
+      }}
+
+      const usableW = Math.max(10, spec.pageW - 2 * spec.margin);
+      const usableH = Math.max(10, spec.pageH - 2 * spec.margin);
+
+      // Step 1: Pack items into horizontal rows that fit within usableW
+      const packedRows = [];
+      let curRow = [];
+      let curRowW = 0;
+      let curRowH = 0;
+
+      items.forEach((item, idx) => {{
+        const w = Math.min(item.w, usableW);
+        const h = Math.min(item.h, usableH);
+        const neededW = curRow.length === 0 ? w : (curRowW + spec.gap + w);
+        if (curRow.length === 0 || neededW <= usableW + 0.05) {{
+          curRow.push({{ idx, item, w, h }});
+          curRowW = neededW;
+          curRowH = Math.max(curRowH, h);
+        }} else {{
+          packedRows.push({{ entries: curRow, rowW: curRowW, rowH: curRowH }});
+          curRow = [{{ idx, item, w, h }}];
+          curRowW = w;
+          curRowH = h;
+        }}
+      }});
+      if (curRow.length) {{
+        packedRows.push({{ entries: curRow, rowW: curRowW, rowH: curRowH }});
+      }}
+
+      // Step 2: Pack rows vertically into physical sheets of height usableH (zero awkward page-break cuts!)
+      const sheets = [];
+      let curPlacements = [];
+      let curY = 0;
+
+      for (const r of packedRows) {{
+        const neededH = curPlacements.length === 0 ? r.rowH : (curY + spec.gap + r.rowH);
+        if (curPlacements.length > 0 && neededH > usableH + 0.05) {{
+          sheets.push({{
+            pageW: spec.pageW,
+            pageH: spec.pageH,
+            margin: spec.margin,
+            placements: curPlacements
+          }});
+          curPlacements = [];
+          curY = 0;
+        }}
+        const rowTop = spec.margin + (curPlacements.length === 0 ? 0 : (curY + spec.gap));
+        let curX = spec.margin + Math.max(0, (usableW - r.rowW) / 2);
+        for (const ent of r.entries) {{
+          curPlacements.push({{
+            idx: ent.idx,
+            item: ent.item,
+            x: curX,
+            y: rowTop,
+            w: ent.w,
+            h: ent.h
+          }});
+          curX += ent.w + spec.gap;
+        }}
+        curY = (rowTop - spec.margin) + r.rowH;
+      }}
+
+      if (curPlacements.length) {{
+        sheets.push({{
+          pageW: spec.pageW,
+          pageH: spec.pageH,
+          margin: spec.margin,
+          placements: curPlacements
+        }});
+      }}
+      return sheets;
+    }}
+
+    function addCurrentToQueue(explicitCopies = null, doRender = true) {{
+      const copiesEl = document.getElementById('addCopiesInput');
+      const count = explicitCopies !== null ? explicitCopies : Math.max(1, parseInt(copiesEl ? copiesEl.value : '1', 10) || 1);
+      const snap = getCurrentLabelSnapshot();
+      if (!snap) return;
+      const svg = buildSVGFromSnapshot(snap);
+      for (let i = 0; i < count; i++) {{
+        printQueue.push({{
+          title: snap.title,
+          w: snap.w,
+          h: snap.h,
+          snap: JSON.parse(JSON.stringify(snap)),
+          svg: svg
+        }});
+      }}
+      if (doRender) renderQueue();
+    }}
+
+    function fillOneSheetWithCurrent() {{
       const dims = getDims();
-      const svg = buildCurrentSVG();
-      const title = document.getElementById('titleInput').value || 'Custom Solution';
-      printQueue.push({{ title: `${{title}} (${{dims.w}}×${{dims.h}}mm)`, svg: svg }});
+      const spec = getPageSpec();
+      const fit = calcLabelsPerSheetForDims(dims, spec);
+      addCurrentToQueue(fit.perSheet, true);
+    }}
+
+    function syncQueueSizesToCurrent() {{
+      const dims = getDims();
+      const layout = document.getElementById('layoutSelect').value;
+      printQueue = printQueue.map(item => {{
+        if (item.snap) {{
+          item.snap.w = dims.w;
+          item.snap.h = dims.h;
+          item.snap.layout = layout;
+          item.w = dims.w;
+          item.h = dims.h;
+          item.svg = buildSVGFromSnapshot(item.snap);
+        }} else {{
+          item.w = dims.w;
+          item.h = dims.h;
+        }}
+        return item;
+      }});
+      renderQueue();
+    }}
+
+    function duplicateQueueItem(idx) {{
+      if (!printQueue[idx]) return;
+      const copy = JSON.parse(JSON.stringify(printQueue[idx]));
+      printQueue.splice(idx + 1, 0, copy);
       renderQueue();
     }}
 
@@ -3044,9 +3522,10 @@ def generate_universal_html_app():
       const savedTitle = document.getElementById('titleInput').value;
       for (const [formula, title] of PRESET_18_LIST) {{
         loadExample(formula, title);
-        addCurrentToQueue();
+        addCurrentToQueue(1, false);
       }}
       loadExample(savedFormula, savedTitle);
+      renderQueue();
     }}
 
     function removeFromQueue(idx) {{
@@ -3061,7 +3540,7 @@ def generate_universal_html_app():
 
     function printCurrentOrQueue() {{
       if (printQueue.length === 0) {{
-        addCurrentToQueue();
+        addCurrentToQueue(1, true);
       }}
       window.print();
     }}
@@ -3069,19 +3548,263 @@ def generate_universal_html_app():
     function renderQueue() {{
       document.getElementById('queueCount').textContent = printQueue.length;
       document.getElementById('queueHeaderCount').textContent = printQueue.length;
-      const grid = document.getElementById('queueGrid');
-      grid.innerHTML = printQueue.map((item, idx) => `
-        <div class="queue-card">
-          <div class="queue-card-bar">
-            <span><strong>SPECIMEN #${{idx + 1}}</strong> • ${{esc(item.title)}}</span>
-            <button class="btn btn-paper" style="padding:2px 8px; font-size:11px;" onclick="removeFromQueue(${{idx}})">Remove</button>
+
+      const spec = getPageSpec();
+      const dims = getDims();
+      const fit = calcLabelsPerSheetForDims(dims, spec);
+      const sheets = paginateQueue(printQueue, spec);
+
+      const firstPageW = sheets.length ? sheets[0].pageW : (spec.pageW || dims.w);
+      const firstPageH = sheets.length ? sheets[0].pageH : (spec.pageH || dims.h);
+      document.getElementById('dynamicPrintCss').textContent = `
+        @page {{
+          size: ${{firstPageW}}mm ${{firstPageH}}mm;
+          margin: 0mm;
+        }}
+        @media print {{
+          .print-sheet-page {{
+            zoom: 1 !important;
+            transform: none !important;
+          }}
+        }}
+      `;
+
+      const banner = document.getElementById('sheetStatusBanner');
+      if (banner) {{
+        let tip = '';
+        if (dims.w === 100 && spec.fmt === 'a4-portrait' && spec.margin > 4) {{
+          tip = ` • <a href="javascript:void(0)" onclick="document.getElementById('pageMarginSelect').value='4'; renderQueue();" style="color:var(--blue-editorial); font-weight:700;">Switch margin to 4 mm</a> or <a href="javascript:void(0)" onclick="document.getElementById('pageFormatSelect').value='a4-landscape'; renderQueue();" style="color:var(--blue-editorial); font-weight:700;">A4 Landscape</a> to fit 2 columns of 100×60 mm labels`;
+        }}
+        banner.innerHTML = `
+          <div>
+            <strong>SHEET CAPACITY (${{esc(spec.label)}}):</strong>
+            ${{fit.cols}} col × ${{fit.rows}} rows = <strong>${{fit.perSheet}} labels/page</strong> for ${{dims.w}}×${{dims.h}} mm labels${{tip}}
           </div>
-          <div>${{item.svg}}</div>
-        </div>
-      `).join('');
+          <div>
+            <strong>ACTIVE QUEUE:</strong> ${{printQueue.length}} label(s) across <strong>${{sheets.length}} page(s)</strong> • Anti-Clip Pagination Active
+          </div>
+        `;
+      }}
+
+      const workbench = document.getElementById('sheetsWorkbench');
+      if (!workbench) return;
+
+      if (!sheets.length) {{
+        workbench.innerHTML = `
+          <div style="background:var(--paper); border:1px dashed var(--ink-muted); padding:28px 36px; text-align:center; max-width:640px;">
+            <div style="font-family:var(--serif); font-size:18px; font-weight:700; margin-bottom:6px;">Print Sheet is Currently Empty</div>
+            <div style="font-size:13px; color:var(--ink-secondary); margin-bottom:14px;">
+              Click <strong>➕ Add to Print Sheet</strong> above to place your current label on an <strong>${{esc(spec.label)}}</strong> page, or load all 18 standard buffers at once.
+            </div>
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
+              <button class="btn btn-ink" onclick="addCurrentToQueue(1)">➕ Add Current Label to Sheet</button>
+              <button class="btn btn-paper" onclick="fillOneSheetWithCurrent()">📄 Fill 1 Full Sheet (${{fit.perSheet}} Copies)</button>
+              <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Load All 18 Standard Buffers</button>
+            </div>
+          </div>
+        `;
+        return;
+      }}
+
+      workbench.innerHTML = sheets.map((sheet, sIdx) => {{
+        const marginGuide = sheet.margin > 0 ? `<div class="sheet-margin-guide" style="left:${{sheet.margin}}mm; top:${{sheet.margin}}mm; width:${{sheet.pageW - 2*sheet.margin}}mm; height:${{sheet.pageH - 2*sheet.margin}}mm;"></div>` : '';
+        const slots = sheet.placements.map(p => `
+          <div class="placed-label-slot ${{spec.crop === 'dashed' ? 'crop-dashed' : ''}}"
+               style="left:${{p.x.toFixed(2)}}mm; top:${{p.y.toFixed(2)}}mm; width:${{p.w}}mm; height:${{p.h}}mm;">
+            <div class="slot-toolbar no-print">
+              <button type="button" class="slot-mini-btn" onclick="duplicateQueueItem(${{p.idx}})" title="Duplicate this label">⧉ Copy</button>
+              <button type="button" class="slot-mini-btn" onclick="removeFromQueue(${{p.idx}})" title="Remove from sheet">✕</button>
+            </div>
+            ${{p.item.svg}}
+          </div>
+        `).join('');
+
+        const zoomStyle = spec.zoom !== 1.0 ? `zoom: ${{spec.zoom}};` : '';
+
+        return `
+          <div class="sheet-wrapper">
+            <div class="sheet-caption no-print">
+              PAGE ${{sIdx + 1}} OF ${{sheets.length}} • ${{esc(spec.label)}} • ${{sheet.placements.length}} LABEL(S) ON THIS SHEET
+            </div>
+            <div class="print-sheet-page" style="width:${{sheet.pageW}}mm; height:${{sheet.pageH}}mm; ${{zoomStyle}}">
+              ${{marginGuide}}
+              ${{slots}}
+            </div>
+          </div>
+        `;
+      }}).join('');
     }}
 
+    // --- Standalone Zero-Dependency 300-DPI Multi-Page PDF Exporter ---
+    function svgToImageElement(svgString) {{
+      return new Promise((resolve, reject) => {{
+        const fullSvg = svgString.trim().startsWith('<?xml')
+          ? svgString
+          : ('<?xml version="1.0" encoding="UTF-8"?>\n' + svgString);
+        const blob = new Blob([fullSvg], {{ type: 'image/svg+xml;charset=utf-8' }});
+        const url = URL.createObjectURL(blob);
+        const img = new Image();
+        img.onload = () => {{
+          URL.revokeObjectURL(url);
+          resolve(img);
+        }};
+        img.onerror = (err) => {{
+          URL.revokeObjectURL(url);
+          reject(err);
+        }};
+        img.src = url;
+      }});
+    }}
+
+    function dataUrlToUint8Array(dataUrl) {{
+      const base64 = dataUrl.split(',')[1];
+      const binStr = atob(base64);
+      const len = binStr.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {{
+        bytes[i] = binStr.charCodeAt(i);
+      }}
+      return bytes;
+    }}
+
+    function buildMultiPagePdfBinary(pagesData) {{
+      const chunks = [];
+      let byteOffset = 0;
+      const encoder = new TextEncoder();
+
+      function pushStr(str) {{
+        const arr = encoder.encode(str);
+        chunks.push(arr);
+        byteOffset += arr.length;
+      }}
+      function pushBytes(arr) {{
+        chunks.push(arr);
+        byteOffset += arr.length;
+      }}
+
+      const numPages = pagesData.length;
+      const totalObjs = 2 + numPages * 3;
+      const offsets = new Array(totalObjs + 1).fill(0);
+
+      pushStr('%PDF-1.4\n%\xE2\xE3\xCF\xD3\n');
+
+      // Object 1: Catalog
+      offsets[1] = byteOffset;
+      pushStr('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n');
+
+      // Object 2: Pages
+      const kidsRef = pagesData.map((_, i) => `${{3 + i * 3}} 0 R`).join(' ');
+      offsets[2] = byteOffset;
+      pushStr(`2 0 obj\n<< /Type /Pages /Kids [ ${{kidsRef}} ] /Count ${{numPages}} >>\nendobj\n`);
+
+      for (let i = 0; i < numPages; i++) {{
+        const p = pagesData[i];
+        const pageObjId = 3 + i * 3;
+        const contentObjId = 4 + i * 3;
+        const imgObjId = 5 + i * 3;
+
+        offsets[pageObjId] = byteOffset;
+        pushStr(`${{pageObjId}} 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [ 0 0 ${{p.ptW.toFixed(2)}} ${{p.ptH.toFixed(2)}} ] /Resources << /XObject << /Im0 ${{imgObjId}} 0 R >> >> /Contents ${{contentObjId}} 0 R >>\nendobj\n`);
+
+        const contentStream = `q ${{p.ptW.toFixed(2)}} 0 0 ${{p.ptH.toFixed(2)}} 0 0 cm /Im0 Do Q\n`;
+        offsets[contentObjId] = byteOffset;
+        pushStr(`${{contentObjId}} 0 obj\n<< /Length ${{contentStream.length}} >>\nstream\n${{contentStream}}endstream\nendobj\n`);
+
+        offsets[imgObjId] = byteOffset;
+        pushStr(`${{imgObjId}} 0 obj\n<< /Type /XObject /Subtype /Image /Width ${{p.pxW}} /Height ${{p.pxH}} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${{p.jpegBytes.length}} >>\nstream\n`);
+        pushBytes(p.jpegBytes);
+        pushStr('\nendstream\nendobj\n');
+      }}
+
+      const xrefStart = byteOffset;
+      pushStr(`xref\n0 ${{totalObjs + 1}}\n`);
+      pushStr('0000000000 65535 f \n');
+      for (let id = 1; id <= totalObjs; id++) {{
+        const offStr = String(offsets[id]).padStart(10, '0');
+        pushStr(`${{offStr}} 00000 n \n`);
+      }}
+      pushStr(`trailer\n<< /Size ${{totalObjs + 1}} /Root 1 0 R >>\nstartxref\n${{xrefStart}}\n%%EOF`);
+
+      return new Blob(chunks, {{ type: 'application/pdf' }});
+    }}
+
+    async function exportSheetsToPDF() {{
+      if (printQueue.length === 0) {{
+        addCurrentToQueue(1, true);
+      }}
+      const spec = getPageSpec();
+      const sheets = paginateQueue(printQueue, spec);
+      if (!sheets.length) return;
+
+      const btn1 = document.getElementById('sheetPdfBtn');
+      const btn2 = document.getElementById('topPdfBtn');
+      const origText1 = btn1 ? btn1.innerHTML : '';
+      const origText2 = btn2 ? btn2.innerHTML : '';
+      if (btn1) {{ btn1.disabled = true; btn1.innerHTML = '⏳ Rendering 300-DPI PDF...'; }}
+      if (btn2) {{ btn2.disabled = true; btn2.innerHTML = '⏳ Rendering PDF...'; }}
+
+      try {{
+        const pxPerMm = 300 / 25.4;
+        const ptPerMm = 72 / 25.4;
+        const pagesData = [];
+
+        for (const sheet of sheets) {{
+          const pxW = Math.round(sheet.pageW * pxPerMm);
+          const pxH = Math.round(sheet.pageH * pxPerMm);
+          const ptW = sheet.pageW * ptPerMm;
+          const ptH = sheet.pageH * ptPerMm;
+
+          const canvas = document.createElement('canvas');
+          canvas.width = pxW;
+          canvas.height = pxH;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, pxW, pxH);
+
+          for (const p of sheet.placements) {{
+            const xPx = p.x * pxPerMm;
+            const yPx = p.y * pxPerMm;
+            const wPx = p.w * pxPerMm;
+            const hPx = p.h * pxPerMm;
+
+            const img = await svgToImageElement(p.item.svg);
+            ctx.drawImage(img, xPx, yPx, wPx, hPx);
+
+            if (spec.crop === 'dashed') {{
+              ctx.save();
+              ctx.strokeStyle = '#94a3b8';
+              ctx.lineWidth = Math.max(1, 0.25 * pxPerMm);
+              ctx.setLineDash([Math.round(1.8 * pxPerMm), Math.round(1.2 * pxPerMm)]);
+              ctx.strokeRect(xPx - 2, yPx - 2, wPx + 4, hPx + 4);
+              ctx.restore();
+            }}
+          }}
+
+          const jpegUrl = canvas.toDataURL('image/jpeg', 0.95);
+          const jpegBytes = dataUrlToUint8Array(jpegUrl);
+          pagesData.push({{ ptW, ptH, pxW, pxH, jpegBytes }});
+        }}
+
+        const pdfBlob = buildMultiPagePdfBinary(pagesData);
+        const url = URL.createObjectURL(pdfBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `GHS_Labels_${{spec.fmt}}_${{sheets.length}}page.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
+      }} catch (err) {{
+        alert('PDF Export Error: ' + (err && err.message ? err.message : err));
+      }} finally {{
+        if (btn1) {{ btn1.disabled = false; btn1.innerHTML = origText1; }}
+        if (btn2) {{ btn2.disabled = false; btn2.innerHTML = origText2; }}
+      }}
+    }}
+
+    initInbuiltPresetsUI();
     parseFormulaInput(true);
+    renderQueue();
   </script>
 </body>
 </html>""";
