@@ -48,10 +48,6 @@ Open `index.html` or `GHS_Custom_Solution_Generator.html` in any modern browser.
 
 Deploy the repository from the `main` branch and root directory using **Settings → Pages → Deploy from a branch**.
 
-## Python CLI
-
-The standalone SVG generator requires Python 3 and the standard library.
-
 **Generate a proteomics buffer label:**
 
 ```bash
