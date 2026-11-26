@@ -8,7 +8,7 @@ HTML Label Studio with exact physical print sizes (mm / inches).
 import json
 from pathlib import Path
 
-BASE_DIR = Path("/Users/u_alagesan/Documents/GHS Label")
+BASE_DIR = Path(__file__).resolve().parent
 SVG_REG_DIR = BASE_DIR / "labels_svg_regulatory"
 SVG_EHS_DIR = BASE_DIR / "labels_svg_conservative_ehs"
 SVG_MIN_REG_DIR = BASE_DIR / "labels_svg_minimal_regulatory"

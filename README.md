@@ -2,7 +2,7 @@
 
 **A browser-based chemical labeling studio and Python CLI for laboratory solutions and custom mixtures.**
 
-https://kathiralagesan.github.io/GHS_Label/
+[**https://kathiralagesan.github.io/GHS_Label/**](https://kathiralagesan.github.io/GHS_Label/){.uri}
 
 Conceived and developed by **Dr. Kathirvel Alagesan**.
 
@@ -48,9 +48,13 @@ Open `index.html` or `GHS_Custom_Solution_Generator.html` in any modern browser.
 
 Deploy the repository from the `main` branch and root directory using **Settings → Pages → Deploy from a branch**.
 
+## Python CLI
+
+The standalone SVG generator requires Python 3 and the standard library.
+
 **Generate a proteomics buffer label:**
 
-```bash
+``` bash
 python3 ghs_mixture_cli.py \
   --comp "6 M GdnHCl, 50 mM Tris, 10 mM TCEP, 40 mM CAA" \
   --title "Proteomics Lysis Buffer" \
@@ -61,7 +65,7 @@ python3 ghs_mixture_cli.py \
 
 **Generate a label using CAS numbers:**
 
-```bash
+``` bash
 python3 ghs_mixture_cli.py \
   --comp "80% 75-05-8, 0.1% 64-18-6" \
   --title "LC-MS Mobile Phase B" \
@@ -70,15 +74,15 @@ python3 ghs_mixture_cli.py \
 
 ## Repository Structure
 
-| File / Directory                     | Description                                 |
-| ------------------------------------ | ------------------------------------------- |
-| `index.html`                         | Primary mixture calculator and label studio |
-| `GHS_Custom_Solution_Generator.html` | Standalone web application                  |
-| `GHS_Labels_Print_Sheet.html`        | Batch print sheet studio                    |
-| `ghs_mixture_cli.py`                 | Python CLI and SVG generator                |
-| `generate_ghs_labels.py`             | Batch preset label generator                |
-| `official_ghs_icons/`                | GHS pictogram SVGs                          |
-| `labels_svg_*/`                      | Pre-generated labels by layout and EHS mode |
+| File / Directory | Description |
+|----|----|
+| `index.html` | Primary mixture calculator and label studio |
+| `GHS_Custom_Solution_Generator.html` | Standalone web application |
+| `GHS_Labels_Print_Sheet.html` | Batch print sheet studio |
+| `ghs_mixture_cli.py` | Python CLI and SVG generator |
+| `generate_ghs_labels.py` | Batch preset label generator |
+| `official_ghs_icons/` | GHS pictogram SVGs |
+| `labels_svg_*/` | Pre-generated labels by layout and EHS mode |
 
 ## Data and Attribution
 

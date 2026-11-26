@@ -11,7 +11,7 @@ import re
 import sys
 from pathlib import Path
 
-BASE_DIR = Path("/Users/u_alagesan/Documents/GHS Label")
+BASE_DIR = Path(__file__).resolve().parent
 
 # All 9 Official UNECE GHS Pictogram Vector Inner Symbols (100x100 viewBox inside red diamond)
 GHS_SYMBOLS_ALL = json.loads((BASE_DIR / "official_ghs_symbols.json").read_text(encoding="utf-8"))
@@ -936,15 +936,21 @@ def find_chemical(query: str):
     return None
 
 
-def to_pct_conc(amount: float, unit: str, mw: float) -> float:
-    """Converts amount in (%, % v/v, % w/v, % w/w, M, mM) to effective % w/v (approx % w/w in water)."""
+def to_pct_conc(amount: float, unit: str, mw: float | None):
+    """Converts amount in (%, % v/v, % w/v, % w/w, M, mM) to effective % concentration.
+    Returns None if molarity is given without a verified molecular weight (MW).
+    """
     u = unit.strip()
     if u.lower() in ["%", "% v/v", "% w/v", "% w/w", "pct"]:
         return float(amount)
     elif u == "M" or u.lower() == "mol/l":
+        if mw is None or mw <= 0:
+            return None
         # 1 M = (MW g / 1000 mL) = (MW / 10) % w/v
         return float(amount) * (mw / 10.0)
     elif u == "mM" or u.lower() == "mmol/l":
+        if mw is None or mw <= 0:
+            return None
         return float(amount) * (mw / 10000.0)
     return float(amount)
 
@@ -965,18 +971,18 @@ def parse_composition_string(comp_str: str) -> list:
 
     parsed = []
     for part in parts:
-        # Pattern 1: "80% ACN" or "50 mM Tris" or "6 M Guanidine HCl"
-        m1 = re.match(r"^([\d.]+)\s*(%\s*[vw]/[vw]|%|mM|M)\s+(.+)$", part)
-        # Pattern 2: "ACN 80%" or "TFA 0.1%"
-        m2 = re.match(r"^(.+?)\s+([\d.]+)\s*(%\s*[vw]/[vw]|%|mM|M)$", part)
+        # Pattern 1: "80% ACN" or "50 mM Tris" or "10% w/v NaOH"
+        m1 = re.match(r"^([\d.]+)\s*(%\s*[vw]/[vw]|%|mM|M)\s+(.+)$", part, re.I)
+        # Pattern 2: "ACN 80%" or "NaOH 10% w/v"
+        m2 = re.match(r"^(.+?)\s+([\d.]+)\s*(%\s*[vw]/[vw]|%|mM|M)$", part, re.I)
         if m1:
             amt = float(m1.group(1))
-            unit = m1.group(2).strip()
+            unit = re.sub(r"\s+", " ", m1.group(2).strip())
             name = m1.group(3).strip()
         elif m2:
             name = m2.group(1).strip()
             amt = float(m2.group(2))
-            unit = m2.group(3).strip()
+            unit = re.sub(r"\s+", " ", m2.group(3).strip())
         else:
             # Pure chemical name with no number -> 100%
             name = part.strip()
@@ -984,7 +990,7 @@ def parse_composition_string(comp_str: str) -> list:
             unit = "%"
 
         ch = find_chemical(name)
-        mw = ch["mw"] if ch else 100.0
+        mw = ch["mw"] if ch else None
         pct = to_pct_conc(amt, unit, mw)
         parsed.append({
             "chem": ch,
@@ -1027,7 +1033,14 @@ def calculate_mixture_ghs(components: list, mode: str = "reg") -> dict:
 
     for comp in components:
         ch = comp.get("chem")
-        pct = float(comp.get("pct", 0.0))
+        raw_pct = comp.get("pct")
+        if raw_pct is None:
+            audit.append(
+                f"UNRESOLVED MW: '{comp.get('raw_name', 'Unknown')}' ({comp.get('amount')} {comp.get('unit')}) "
+                "has no verified Molecular Weight — molar contribution NOT calculated. Verify against supplier SDS."
+            )
+            continue
+        pct = float(raw_pct)
         if not ch or pct <= 0 or ch["key"] == "H2O":
             continue
 
@@ -1187,11 +1200,16 @@ def calculate_mixture_ghs(components: list, mode: str = "reg") -> dict:
     comp_items = []
     for c in components:
         if c["unit"].startswith("%"):
-            comp_items.append(f"{c['amount']:g}% {c['short_name']}")
+            comp_items.append(f"{c['amount']:g}{c['unit'].replace(' ', '')} {c['short_name']}")
+        elif c["pct"] is None:
+            comp_items.append(f"{c['amount']:g} {c['unit']} {c['short_name']} (MW unresolved)")
         else:
             comp_items.append(f"{c['amount']:g} {c['unit']} {c['short_name']} (~{c['pct']:.2g}%)")
         if c.get("cas") and c["cas"] not in cas_items:
             cas_items.append(f"{c['cas']} ({c['short_name']})")
+
+    first_pct = components[0]["pct"] if components else None
+    is_pure_single = len(comp_items) == 1 and first_pct is not None and first_pct >= 99.9
 
     return {
         "pictograms": ordered_pictos,
@@ -1199,7 +1217,7 @@ def calculate_mixture_ghs(components: list, mode: str = "reg") -> dict:
         "h_statements": h_list[:4],
         "p_statements": p_list[:4],
         "cas": "CAS: " + " | ".join(cas_items[:3]) if cas_items else "Custom Mixture",
-        "composition": ", ".join(comp_items) + " (in H₂O)" if len(comp_items) > 1 or (components and components[0]["pct"] < 99.9) else ", ".join(comp_items),
+        "composition": ", ".join(comp_items) if is_pure_single else ", ".join(comp_items) + " (in H₂O)",
         "audit_log": audit
     }
 
@@ -2819,9 +2837,19 @@ def generate_universal_html_app():
         document.getElementById('titleInput').value = raw;
       }}
       let parts = raw.split(/[,;+]+/).map(x => x.trim()).filter(Boolean);
-      if (parts.length === 2 && !/\d/.test(parts[0]) && /^[\d.]+\s*(%|M|mM)$/i.test(parts[1])) {{
+      if (parts.length === 2 && !/\d/.test(parts[0]) && /^[\d.]+\s*(%\s*[vw]\/[vw]|%|mM|M)$/i.test(parts[1])) {{
         parts = [`${{parts[1]}} ${{parts[0]}}`];
       }}
+
+      const normalizeParsedUnit = (uRaw) => {{
+        const compact = uRaw.toLowerCase().replace(/\s+/g, '');
+        if (compact === 'mm') return 'mM';
+        if (compact === 'm') return 'M';
+        if (compact === '%w/v') return '% w/v';
+        if (compact === '%w/w') return '% w/w';
+        if (compact === '%v/v' || compact === '%') return '% v/v';
+        return '% v/v';
+      }};
 
       rows = [];
       for (const part of parts) {{
@@ -2830,12 +2858,12 @@ def generate_universal_html_app():
         let amt = 100, unit = '% v/v', name = part;
         if (m1) {{
           amt = parseFloat(m1[1]);
-          unit = m1[2].toUpperCase() === 'MM' ? 'mM' : (m1[2].toUpperCase() === 'M' ? 'M' : '% v/v');
+          unit = normalizeParsedUnit(m1[2]);
           name = m1[3].trim();
         }} else if (m2) {{
           name = m2[1].trim();
           amt = parseFloat(m2[2]);
-          unit = m2[3].toUpperCase() === 'MM' ? 'mM' : (m2[3].toUpperCase() === 'M' ? 'M' : '% v/v');
+          unit = normalizeParsedUnit(m2[3]);
         }}
         const ch = findChemical(name);
         if (ch) {{
@@ -3144,6 +3172,7 @@ def generate_universal_html_app():
       for (const c of comps) {{
         if (!c.chem || c.amount <= 0) continue;
         if (c.unit.startsWith('%')) compParts.push(`${{c.amount}}${{c.unit.replace(' ','')}} ${{c.shortName}}`);
+        else if (c.pct === null) compParts.push(`${{c.amount}} ${{c.unit}} ${{c.shortName}} (MW unresolved)`);
         else compParts.push(`${{c.amount}} ${{c.unit}} ${{c.shortName}} (~${{c.pct.toFixed(2)}}%)`);
         if (c.chem.cas && !casParts.includes(`${{c.chem.cas}} (${{c.shortName}})`)) {{
           casParts.push(`${{c.chem.cas}} (${{c.shortName}})`);

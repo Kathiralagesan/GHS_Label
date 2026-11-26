@@ -1377,9 +1377,19 @@
         document.getElementById('titleInput').value = raw;
       }
       let parts = raw.split(/[,;+]+/).map(x => x.trim()).filter(Boolean);
-      if (parts.length === 2 && !/\d/.test(parts[0]) && /^[\d.]+\s*(%|M|mM)$/i.test(parts[1])) {
+      if (parts.length === 2 && !/\d/.test(parts[0]) && /^[\d.]+\s*(%\s*[vw]\/[vw]|%|mM|M)$/i.test(parts[1])) {
         parts = [`${parts[1]} ${parts[0]}`];
       }
+
+      const normalizeParsedUnit = (uRaw) => {
+        const compact = uRaw.toLowerCase().replace(/\s+/g, '');
+        if (compact === 'mm') return 'mM';
+        if (compact === 'm') return 'M';
+        if (compact === '%w/v') return '% w/v';
+        if (compact === '%w/w') return '% w/w';
+        if (compact === '%v/v' || compact === '%') return '% v/v';
+        return '% v/v';
+      };
 
       rows = [];
       for (const part of parts) {
@@ -1388,12 +1398,12 @@
         let amt = 100, unit = '% v/v', name = part;
         if (m1) {
           amt = parseFloat(m1[1]);
-          unit = m1[2].toUpperCase() === 'MM' ? 'mM' : (m1[2].toUpperCase() === 'M' ? 'M' : '% v/v');
+          unit = normalizeParsedUnit(m1[2]);
           name = m1[3].trim();
         } else if (m2) {
           name = m2[1].trim();
           amt = parseFloat(m2[2]);
-          unit = m2[3].toUpperCase() === 'MM' ? 'mM' : (m2[3].toUpperCase() === 'M' ? 'M' : '% v/v');
+          unit = normalizeParsedUnit(m2[3]);
         }
         const ch = findChemical(name);
         if (ch) {
@@ -1702,6 +1712,7 @@
       for (const c of comps) {
         if (!c.chem || c.amount <= 0) continue;
         if (c.unit.startsWith('%')) compParts.push(`${c.amount}${c.unit.replace(' ','')} ${c.shortName}`);
+        else if (c.pct === null) compParts.push(`${c.amount} ${c.unit} ${c.shortName} (MW unresolved)`);
         else compParts.push(`${c.amount} ${c.unit} ${c.shortName} (~${c.pct.toFixed(2)}%)`);
         if (c.chem.cas && !casParts.includes(`${c.chem.cas} (${c.shortName})`)) {
           casParts.push(`${c.chem.cas} (${c.shortName})`);
