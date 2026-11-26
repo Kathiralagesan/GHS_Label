@@ -4,7 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Laboratory GHS Pictogram &amp; Mixture Label Studio</title>
-  <style id="dynamicPrintCss"></style>
+  <style id="dynamicPrintCss">    /* Palette – user supplied colors */
+    :root {
+      --accent-1: #E7C766; /* Cool Mustard */
+      --accent-2: #352254; /* Bold Plum */
+      --accent-3: #E8985E; /* Muted Orange */
+      --accent-4: #F2EBDC; /* Soft Beige */
+      --accent-5: #362119; /* Deep Espresso */
+    }
+    /* Force canvas to pure white (Ivory) */
+    body { background: #F8F5EE !important; }
+    /* Helper classes to use the palette */
+    .accent-1 { color: var(--accent-1); }
+    .accent-2 { color: var(--accent-2); }
+    .accent-3 { color: var(--accent-3); }
+    .accent-4 { color: var(--accent-4); }
+    .accent-5 { color: var(--accent-5); }
+</style>
   <style>
     :root {
       --paper: #f6f4ee;
@@ -575,7 +591,23 @@
         break-after: auto !important;
       }
     }
-  </style>
+      /* Palette – user supplied colors */
+    :root {
+      --accent-1: #E7C766; /* Cool Mustard */
+      --accent-2: #352254; /* Bold Plum */
+      --accent-3: #E8985E; /* Muted Orange */
+      --accent-4: #F2EBDC; /* Soft Beige */
+      --accent-5: #362119; /* Deep Espresso */
+    }
+    /* Force canvas to pure white (Ivory) */
+    body { background: #F8F5EE !important; }
+    /* Helper classes to use the palette */
+    .accent-1 { color: var(--accent-1); }
+    .accent-2 { color: var(--accent-2); }
+    .accent-3 { color: var(--accent-3); }
+    .accent-4 { color: var(--accent-4); }
+    .accent-5 { color: var(--accent-5); }
+</style>
 </head>
 <body>
   <!-- Editorial Masthead (Clean header without top credit pill) -->
@@ -1194,7 +1226,24 @@
       return entry;
     }
 
+    // PubChem lookup – optional. Set ENABLE_PUBCHEM = false to disable any network traffic.
+    const ENABLE_PUBCHEM = true; // <-- toggle here
     async function fetchPubChemCas(queryStr) {
+      if (!ENABLE_PUBCHEM) {
+        // Skip network request; return a minimal placeholder entry so the UI still works.
+        const placeholder = {
+          name: queryStr,
+          cid: null,
+          title: queryStr,
+          formula: "",
+          mw: 0,
+          ghs: "",
+          // other fields required by the app can be filled with defaults
+        };
+        CHEM_DB.push(placeholder);
+        return placeholder;
+      }
+
       const q = encodeURIComponent(queryStr.trim());
       let propResp = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${q}/property/Title,MolecularFormula,MolecularWeight/JSON`);
       if (!propResp.ok) {
