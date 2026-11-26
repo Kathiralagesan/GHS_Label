@@ -2,6 +2,8 @@
 
 **A browser-based chemical labeling studio and Python CLI for laboratory solutions and custom mixtures.**
 
+https://kathiralagesan.github.io/GHS_Label/
+
 Conceived and developed by **Dr. Kathirvel Alagesan**.
 
 Generate GHS/CLP hazard labels for laboratory buffers, LC-MS mobile phases, and custom chemical mixtures using composition-driven screening, chemical reference data, and vector-based label rendering.
