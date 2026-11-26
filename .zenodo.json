@@ -1,0 +1,20 @@
+{
+  "title": "Laboratory GHS Pictogram & Mixture Label Studio",
+  "description": "A 100% client-side, zero-backend web application and Python CLI tool for generating Globally Harmonized System (GHS) / EU CLP Regulation (EC) No 1272/2008 chemical safety labels for laboratory buffers, mobile phases, and custom multi-component mixtures, featuring 38 inbuilt presets, optional live NCBI PubChem CAS lookup (with an Offline Mode toggle), calibrated physical label sizing, anti-clip A4 pagination, and 300-DPI PDF export.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Alagesan, Kathirvel"
+    }
+  ],
+  "keywords": [
+    "GHS",
+    "EU CLP",
+    "chemical safety",
+    "laboratory labels",
+    "proteomics",
+    "LC-MS",
+    "SVG"
+  ]
+}
