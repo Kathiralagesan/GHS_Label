@@ -1,5 +1,7 @@
 # Laboratory GHS Pictogram & Mixture Label Studio
 
+https://kathiralagesan.github.io/GHS_Label/
+
 **Conceived & Developed by Dr. Kathirvel Alagesan**
 
 A 100% client-side, zero-backend web application and Python CLI tool for generating **Globally Harmonized System (GHS) / EU CLP Regulation (EC) No 1272/2008** chemical safety labels for laboratory buffers, mobile phases, and custom multi-component mixtures.
