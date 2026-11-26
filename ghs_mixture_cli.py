@@ -1449,19 +1449,23 @@ def generate_universal_html_app():
   <style id="dynamicPrintCss"></style>
   <style>
     :root {{
-      --paper: #f6f4ee;
-      --paper-deep: #ece8de;
+      --canvas: #ffffff;
+      --paper: #ffffff;         /* Crisp White Editorial Surface */
+      --ivory: #F8F5EE;         /* Ivory White (subtle gallery mat) */
+      --paper-deep: #F2EBDC;    /* Soft Beige (hover / secondary mat) */
       --surface: #ffffff;
-      --ink: #141413;
-      --ink-secondary: #52504a;
-      --ink-muted: #78756d;
-      --rule: #d5d0c3;
-      --rule-dark: #141413;
-      --accent: #9b1b1b;
-      --accent-soft: #fdf2f2;
-      --blue-editorial: #1e3a5f;
-      --blue-soft: #f0f4f8;
-      --green-editorial: #14532d;
+      --ink: #362119;           /* Deep Espresso */
+      --ink-secondary: #5c463d;
+      --ink-muted: #8a756b;
+      --rule: #e6dfd3;
+      --rule-dark: #362119;
+      --accent: #E8985E;        /* Muted Orange */
+      --accent-soft: #fef6ef;
+      --mustard: #E7C766;       /* Cool Mustard */
+      --mustard-soft: #fdf8e4;
+      --blue-editorial: #352254; /* Bold Plum */
+      --blue-soft: #f6f3fa;      /* Subtle Plum Tint */
+      --green-editorial: #352254;
       --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman", serif;
       --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
       --mono: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
@@ -1471,16 +1475,17 @@ def generate_universal_html_app():
       margin: 0;
       padding: 0;
       font-family: var(--sans);
-      background-color: var(--paper);
+      background-color: #ffffff;
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
     }}
 
-    /* Editorial Masthead */
+    /* High-End Editorial Masthead on Pure White */
     .masthead {{
-      background: var(--paper);
-      border-bottom: 2px solid var(--rule-dark);
-      padding: 18px 28px 16px;
+      background: #ffffff;
+      border-top: 5px solid var(--blue-editorial);
+      border-bottom: 1.5px solid var(--ink);
+      padding: 20px 28px 18px;
     }}
     .masthead-inner {{
       max-width: 1380px;
@@ -1545,10 +1550,11 @@ def generate_universal_html_app():
 
     /* Editorial Section Cards */
     .ed-card {{
-      background: var(--surface);
+      background: #ffffff;
       border: 1px solid var(--rule);
-      box-shadow: 0 1px 2px rgba(20, 20, 19, 0.04);
-      padding: 20px 22px;
+      border-top: 3px solid var(--ink);
+      box-shadow: 0 2px 10px rgba(54, 33, 25, 0.03);
+      padding: 22px 24px;
     }}
     .ed-section-header {{
       display: flex;
@@ -1556,18 +1562,20 @@ def generate_universal_html_app():
       justify-content: space-between;
       align-items: baseline;
       border-bottom: 1.5px solid var(--ink);
-      padding-bottom: 8px;
-      margin-bottom: 14px;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
       gap: 8px;
     }}
     .ed-section-num {{
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-right: 8px;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      background: var(--blue-editorial);
+      padding: 3px 8px;
+      margin-right: 10px;
     }}
     .ed-section-title {{
       font-family: var(--serif);
@@ -1596,12 +1604,13 @@ def generate_universal_html_app():
       font-family: var(--sans);
       font-size: 13px;
       color: var(--ink);
-      background: #faf9f6;
-      transition: border-color 0.15s, background 0.15s;
+      background: #ffffff;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }}
     input[type="text"]:focus, input[type="number"]:focus, select:focus {{
       outline: none;
-      border-color: var(--ink);
+      border-color: var(--blue-editorial);
+      box-shadow: 0 0 0 2px rgba(53, 34, 84, 0.1);
       background: #ffffff;
     }}
 
@@ -1627,39 +1636,57 @@ def generate_universal_html_app():
     }}
     .btn-ink {{
       background: var(--ink);
-      color: var(--paper);
+      color: #ffffff;
       border-color: var(--ink);
     }}
-    .btn-ink:hover {{ background: #2c2b29; }}
+    .btn-ink:hover {{ background: #4d3228; }}
     .btn-accent {{
       background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
+      color: var(--ink);
+      border-color: var(--ink);
     }}
-    .btn-accent:hover {{ background: #7f1616; }}
+    .btn-accent:hover {{ background: #df8648; }}
     .btn-paper {{
-      background: var(--paper);
+      background: #ffffff;
       color: var(--ink);
       border-color: var(--rule);
     }}
     .btn-paper:hover {{
       background: var(--paper-deep);
-      border-color: var(--ink-secondary);
+      border-color: var(--ink);
     }}
     .btn-blue {{
       background: var(--blue-editorial);
       color: #ffffff;
       border-color: var(--blue-editorial);
     }}
-    .btn-blue:hover {{ background: #152943; }}
+    .btn-blue:hover {{ background: #26183d; }}
 
     /* Callout / CAS Box */
     .cas-box {{
-      background: var(--blue-soft);
-      border: 1px solid #c5d4e6;
-      border-left: 3.5px solid var(--blue-editorial);
-      padding: 13px 14px;
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--blue-editorial);
+      padding: 14px 15px;
       margin-bottom: 16px;
+    }}
+    .offline-toggle-pill {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--mustard-soft);
+      border: 1px solid var(--mustard);
+      padding: 3px 9px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+    }}
+    .offline-toggle-pill.offline-on {{
+      background: var(--blue-editorial);
+      border-color: var(--blue-editorial);
+      color: #ffffff;
     }}
     .cas-help-note {{
       font-size: 11.5px;
@@ -1778,9 +1805,9 @@ def generate_universal_html_app():
 
     /* Desk Specimen Stage */
     .specimen-stage {{
-      background: var(--paper-deep);
+      background: var(--ivory);
       border: 1px solid var(--rule);
-      padding: 18px;
+      padding: 20px;
       position: relative;
     }}
     .specimen-meta-bar {{
@@ -1836,7 +1863,7 @@ def generate_universal_html_app():
     .picto-btn.active {{
       background: var(--accent-soft);
       border-color: var(--accent);
-      color: var(--accent);
+      color: var(--ink);
     }}
 
     /* Section III: A4 / Multi-Page Print Sheet Studio */
@@ -1861,7 +1888,7 @@ def generate_universal_html_app():
       margin-top: 12px;
       background: var(--paper);
       border: 1px solid var(--rule);
-      border-left: 3.5px solid var(--green-editorial);
+      border-left: 4px solid var(--mustard);
       padding: 8px 12px;
       font-family: var(--mono);
       font-size: 11.5px;
@@ -1873,9 +1900,9 @@ def generate_universal_html_app():
       gap: 8px;
     }}
     .sheets-workbench {{
-      background: #d8d3c6;
-      border: 1px solid #bfb9aa;
-      padding: 24px 16px;
+      background: var(--ivory);
+      border: 1px solid var(--rule);
+      padding: 26px 16px;
       overflow-x: auto;
       display: flex;
       flex-direction: column;
@@ -2025,7 +2052,7 @@ def generate_universal_html_app():
     <div class="masthead-inner">
       <div class="masthead-meta">
         <span>LABORATORY SAFETY &amp; CHEMICAL HYGIENE MONOGRAPH • UNECE GHS / EU CLP (EC) NO 1272/2008</span>
-        <span>OFFICIAL UNECE VECTOR PICTOGRAMS • CALIBRATED A4 &amp; PDF LABEL PRESS</span>
+        <span id="mastheadNetStatus" style="color:var(--blue-editorial); font-weight:700;">100% CLIENT-SIDE • ZERO BACKEND • OPTIONAL PUBCHEM CAS LOOKUP</span>
       </div>
       <div class="masthead-main">
         <div>
@@ -2118,7 +2145,16 @@ def generate_universal_html_app():
 
       <!-- Search by CAS Number or Chemical Name -->
       <div class="cas-box">
-        <label class="field-label" style="color:var(--blue-editorial);">🔎 Search &amp; Lookup by CAS Number (Built-in Registry + Live NCBI PubChem 115M+ Database)</label>
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:7px;">
+          <label class="field-label" style="color:var(--blue-editorial); margin:0;">🔎 Search &amp; Lookup by CAS Number (Built-in Registry + Optional NCBI PubChem)</label>
+          <label id="offlineTogglePill" class="offline-toggle-pill" title="When checked, disables all external requests to NCBI PubChem so the app makes zero network calls.">
+            <input type="checkbox" id="offlineModeToggle" onchange="onToggleOfflineMode()" style="width:auto; margin:0; accent-color:var(--blue-editorial);" />
+            <span>Offline Mode (Disable PubChem)</span>
+          </label>
+        </div>
+        <div class="cas-help-note" style="margin:0 0 8px;">
+          <strong>100% Client-Side, Zero-Backend:</strong> All CLP math, label rendering, and PDF export run locally in your browser. The <strong>only</strong> external request is the optional PubChem CAS lookup; enabling <strong>Offline Mode</strong> disables all network traffic.
+        </div>
         <div style="display:grid; grid-template-columns: 1.5fr 0.55fr 0.65fr; gap:6px; align-items:center; margin-bottom:8px;">
           <input type="text" id="casSearchInput" placeholder="Enter CAS (e.g. 67-56-1, 123-91-1, 109-89-7) or Chemical Name"
                  oninput="onCasTyping()"
@@ -2636,7 +2672,29 @@ def generate_universal_html_app():
       return entry;
     }}
 
+    function isPubChemEnabled() {{
+      const el = document.getElementById('offlineModeToggle');
+      return !(el && el.checked);
+    }}
+
+    function onToggleOfflineMode() {{
+      const el = document.getElementById('offlineModeToggle');
+      const offline = !!(el && el.checked);
+      try {{ localStorage.setItem('ghs_studio_offline_mode', offline ? '1' : '0'); }} catch(e) {{}}
+      const pill = document.getElementById('offlineTogglePill');
+      if (pill) pill.classList.toggle('offline-on', offline);
+      const status = document.getElementById('mastheadNetStatus');
+      if (status) {{
+        status.textContent = offline
+          ? '100% CLIENT-SIDE • ZERO BACKEND • STRICT OFFLINE MODE (PUBCHEM DISABLED)'
+          : '100% CLIENT-SIDE • ZERO BACKEND • OPTIONAL PUBCHEM CAS LOOKUP';
+      }}
+    }}
+
     async function fetchPubChemCas(queryStr) {{
+      if (!isPubChemEnabled()) {{
+        throw new Error('Offline Mode is enabled (PubChem lookup disabled).');
+      }}
       const q = encodeURIComponent(queryStr.trim());
       let propResp = await fetch(`https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/${{q}}/property/Title,MolecularFormula,MolecularWeight/JSON`);
       if (!propResp.ok) {{
@@ -2674,6 +2732,22 @@ def generate_universal_html_app():
       if (!ch) {{
         const box = document.getElementById('casLookupCard');
         box.style.display = 'block';
+        if (!isPubChemEnabled()) {{
+          box.innerHTML = `<span style="color:var(--blue-editorial); font-weight:700;">🔒 Offline Mode active: "${{esc(q)}}" is not in the built-in offline registry. Added as a custom row for manual hazard selection.</span>`;
+          if (replaceAll) rows = [];
+          rows.push({{
+            chemKey: '__CUSTOM__',
+            amount: amt,
+            unit: unit,
+            customName: q,
+            customCas: q,
+            customMw: 100,
+            customHazards: {{ flam2: false, corr1: false, acute3: false, irrit2: true, stot1: false, aquat: false }}
+          }});
+          renderRows();
+          recalculate();
+          return;
+        }}
         box.innerHTML = `<span style="color:var(--blue-editorial); font-weight:700;">⏳ Querying NCBI PubChem for "${{esc(q)}}" (CID, MW &amp; GHS Classification)...</span>`;
         try {{
           ch = await fetchPubChemCas(q);
@@ -2774,14 +2848,16 @@ def generate_universal_html_app():
             customMw: 100,
             customHazards: {{ flam2: false, corr1: false, acute3: false, irrit2: true, stot1: false, aquat: false }}
           }});
-          fetchPubChemCas(name).then(entry => {{
-            if (rows[rowIdx] && rows[rowIdx].customName === name) {{
-              rows[rowIdx] = {{ chemKey: entry.key, amount: amt, unit: unit }};
-              showCasCard(entry, 'Auto-Resolved via Live PubChem GHS');
-              renderRows();
-              recalculate();
-            }}
-          }}).catch(() => {{}});
+          if (isPubChemEnabled()) {{
+            fetchPubChemCas(name).then(entry => {{
+              if (rows[rowIdx] && rows[rowIdx].customName === name) {{
+                rows[rowIdx] = {{ chemKey: entry.key, amount: amt, unit: unit }};
+                showCasCard(entry, 'Auto-Resolved via Live PubChem GHS');
+                renderRows();
+                recalculate();
+              }}
+            }}).catch(() => {{}});
+          }}
         }}
       }}
       resetOverrides(false);
@@ -3802,6 +3878,13 @@ def generate_universal_html_app():
       }}
     }}
 
+    try {{
+      if (localStorage.getItem('ghs_studio_offline_mode') === '1') {{
+        const offEl = document.getElementById('offlineModeToggle');
+        if (offEl) offEl.checked = true;
+      }}
+    }} catch(e) {{}}
+    onToggleOfflineMode();
     initInbuiltPresetsUI();
     parseFormulaInput(true);
     renderQueue();

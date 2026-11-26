@@ -4,6 +4,8 @@
 
 A 100% client-side, zero-backend web application and Python CLI tool for generating **Globally Harmonized System (GHS) / EU CLP Regulation (EC) No 1272/2008** chemical safety labels for laboratory buffers, mobile phases, and custom multi-component mixtures.
 
+> **Network Transparency:** All mixture classification, SVG rendering, A4 pagination, and 300-DPI PDF export run locally in your browser with zero backend. The **only** external network request is the optional NCBI PubChem lookup (`pubchem.ncbi.nlm.nih.gov`) when searching for a CAS number or chemical name not already in the built-in offline registry. Toggling **Offline Mode (Disable PubChem)** in the UI disables all network requests completely.
+
 ---
 
 ## ✨ Key Features
