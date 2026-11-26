@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="100.0mm" height="60.0mm">
+  <rect x="2" y="2" width="516" height="326" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2.5"/>
+  <path d="M 12 3.5 L 508 3.5 C 513 3.5 516.5 7 516.5 12 L 516.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="#16a34a"/>
+  <text x="16" y="37" font-family="Arial, sans-serif" font-size="21" font-weight="900" fill="#0f172a">FA, 1%</text>
+  <text x="16" y="53" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#334155">1% (v/v) Formic Acid in Water</text>
+  <text x="16" y="66" font-family="Arial, sans-serif" font-size="8.8" fill="#64748b">CAS: 64-18-6 (Formic Acid) | 7732-18-5 (H₂O)  •  1% Formic acid, 99% Ultrapure Water (pH ~ 2.2)</text>
+  <rect x="374" y="19" width="132" height="28" rx="5" fill="#16a34a"/>
+  <text x="440" y="37" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="0.8" fill="#ffffff">NO SIGNAL WORD</text>
+  <line x1="12" y1="74" x2="508" y2="74" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="10" y="80" width="144" height="170" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  
+        <rect x="20" y="115" width="116" height="72" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="4,3"/>
+        <circle cx="78" cy="140" r="13" fill="#16a34a"/>
+        <path d="M72 140 L76.5 144.5 L85 135.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="78" y="166" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#15803d">NO GHS PICTOGRAM</text>
+        <text x="78" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.2" fill="#166534">Below CLP Cutoff / Non-Haz</text>
+        
+  <text x="166" y="96" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#991b1b">HAZARD STATEMENTS:</text><text x="166" y="108" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">Not a hazardous mixture under CLP Annex VI Specific</text><text x="166" y="119.2" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">Concentration Limit (SCL for FA is ≥ 2%).</text><text x="166" y="130.4" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">EUH210: Safety data sheet available on request.</text><text x="166" y="174" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#1e40af">PRECAUTIONARY STATEMENTS:</text><text x="166" y="186" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">P280: Wear standard laboratory gloves and safety glasses.</text><text x="166" y="197.0" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">Wash hands after handling; avoid eye contact (dilute</text><text x="166" y="208.0" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">organic acid, pH ~ 2.2).</text>
+  <line x1="12" y1="256" x2="508" y2="256" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="12" y="263" width="158" height="53" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="18" y="276" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569">DATE PREPARED:</text>
+  <line x1="18" y1="304" x2="160" y2="304" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="178" y="263" width="158" height="53" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="184" y="276" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569">PREPARED BY:</text>
+  <line x1="184" y1="304" x2="326" y2="304" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="344" y="263" width="164" height="53" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="350" y="276" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569">NOTES:</text>
+  <line x1="350" y1="304" x2="498" y2="304" stroke="#cbd5e1" stroke-width="1"/>
+</svg>

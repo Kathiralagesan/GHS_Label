@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="80.0mm" height="45.0mm">
+  <!-- Outer Card & Border -->
+  <rect x="2" y="2" width="476" height="266" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+  <!-- Top Signal Color Bar -->
+  <path d="M 12 3.5 L 468 3.5 C 473 3.5 476.5 7 476.5 12 L 476.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="#d90000"/>
+
+  <!-- Header Section -->
+  <text x="16" y="40" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900" fill="#0f172a">0.1% FA, 80% ACN</text>
+  <text x="16" y="58" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#334155">0.1% Formic Acid, 80% Acetonitrile in Water</text>
+
+  <!-- Signal Word Banner (Top Right) -->
+  <rect x="332" y="20" width="134" height="32" rx="6" fill="#d90000"/>
+  <text x="399" y="41" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.5" font-weight="900" letter-spacing="0.8" fill="#ffffff">DANGER</text>
+
+  <!-- Divider -->
+  <line x1="12" y1="70" x2="468" y2="70" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Left Pictogram Zone -->
+  <rect x="12" y="78" width="206" height="178" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+  <svg x="18.0" y="96.0" width="94.0" height="94.0" viewBox="0 0 579 579"><path d="m25 290 264 264 264-264L289 26 25 290z" fill="#fff"/><path d="M148 148 6 290l142 141 141 142 142-142 142-141-142-142L289 6 148 148zm261 22 119 120-119 119-120 119-119-119L51 290l119-120L289 51l120 119z" fill="red"/><path d="M290 121c-18 34 3 53-20 102-13-10-6-47-30-48 3 12 1 16 0 20-3 17-8 31 3 52-17-8-18-23-32-33 3 16-4 49 15 81-17-2-23-8-41-26 19 100 34 103 105 109-6-1-42-7-55-48 0-10-1 9 34 10-22-35-16-28-14-48 10 13 2 15 27 25-8-26 13-43 8-73 6 13 26 11 25 73 17-19 18-6 26-26 1 11 6 25-17 49 6 2 16 3 31-8-15 18-1 18-40 46 49 1 81-30 80-97-2 6-3 18-29 21 16-16 25-49 12-75-5 4-12 24-29 29 8-14 6-32 6-32s3-25-12-45c-4 30-4 46-23 50 3-17 4-26-6-46-10-21-22-42-24-62zm-81 274v18h171v-18H209z"/></svg><svg x="116.0" y="96.0" width="94.0" height="94.0" viewBox="0 0 5790 5790"><path d="m253 2897 2640 2640 2641-2640c-880-880-1760-1762-2640-2640L253 2897" fill="#fff"/><path d="m60 2897 2833 2833 2834-2834L2894 63 60 2897zm5218 0L2893 5280 510 2896 2894 512l2384 2384" fill="red"/><path d="M2892 1428h-20a475 475 0 0 0-301 121 229 229 0 0 0-64 113c-3 11-3 14-3 35s0 25 3 37c2 14 195 1314 197 1336a213 213 0 0 0 239 182 213 213 0 0 0 180-182c3-27 195-1324 198-1337 2-12 2-16 2-35 0-23 0-31-5-47a234 234 0 0 0-106-138 496 496 0 0 0-291-85h-30zm20 2011h-12a302 302 0 0 0-243 141 338 338 0 0 0-55 232 343 343 0 0 0 114 218 310 310 0 0 0 199 74 316 316 0 0 0 258-141 341 341 0 0 0 54-234 390 390 0 0 0-32-110 317 317 0 0 0-281-180"/></svg><text x="115" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#334155">GHS02 + GHS07</text>
+
+  <!-- Right Simple Metadata Fields: DATE PREPARED, PREPARED BY, NOTES -->
+  <rect x="228" y="78" width="238" height="53" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="238" y="94" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="800" fill="#475569">DATE PREPARED:</text>
+  <line x1="238" y1="121" x2="454" y2="121" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <rect x="228" y="140" width="238" height="53" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="238" y="156" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="800" fill="#475569">PREPARED BY:</text>
+  <line x1="238" y1="183" x2="454" y2="183" stroke="#cbd5e1" stroke-width="1.2"/>
+
+  <rect x="228" y="203" width="238" height="53" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="238" y="219" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="800" fill="#475569">NOTES:</text>
+  <line x1="238" y1="246" x2="454" y2="246" stroke="#cbd5e1" stroke-width="1.2"/>
+</svg>

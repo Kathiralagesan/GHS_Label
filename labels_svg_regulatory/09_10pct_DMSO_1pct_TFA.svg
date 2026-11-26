@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="100.0mm" height="60.0mm">
+  <rect x="2" y="2" width="516" height="326" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2.5"/>
+  <path d="M 12 3.5 L 508 3.5 C 513 3.5 516.5 7 516.5 12 L 516.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="#d97706"/>
+  <text x="16" y="37" font-family="Arial, sans-serif" font-size="21" font-weight="900" fill="#0f172a">10% DMSO + 1% TFA</text>
+  <text x="16" y="53" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#334155">10% Dimethyl Sulfoxide, 1% TFA in Water</text>
+  <text x="16" y="66" font-family="Arial, sans-serif" font-size="8.8" fill="#64748b">CAS: 67-68-5 (DMSO) | 76-05-1 (TFA) | 7732-18-5 (H₂O)  •  10% DMSO, 1% Trifluoroacetic acid, 89% Water</text>
+  <rect x="374" y="19" width="132" height="28" rx="5" fill="#d97706"/>
+  <text x="440" y="37" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="0.8" fill="#ffffff">WARNING</text>
+  <line x1="12" y1="74" x2="508" y2="74" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="10" y="80" width="144" height="170" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <svg x="30.0" y="108.0" width="96.0" height="96.0" viewBox="0 0 5790 5790"><path d="m253 2897 2640 2640 2641-2640c-880-880-1760-1762-2640-2640L253 2897" fill="#fff"/><path d="m60 2897 2833 2833 2834-2834L2894 63 60 2897zm5218 0L2893 5280 510 2896 2894 512l2384 2384" fill="red"/><path d="M2892 1428h-20a475 475 0 0 0-301 121 229 229 0 0 0-64 113c-3 11-3 14-3 35s0 25 3 37c2 14 195 1314 197 1336a213 213 0 0 0 239 182 213 213 0 0 0 180-182c3-27 195-1324 198-1337 2-12 2-16 2-35 0-23 0-31-5-47a234 234 0 0 0-106-138 496 496 0 0 0-291-85h-30zm20 2011h-12a302 302 0 0 0-243 141 338 338 0 0 0-55 232 343 343 0 0 0 114 218 310 310 0 0 0 199 74 316 316 0 0 0 258-141 341 341 0 0 0 54-234 390 390 0 0 0-32-110 317 317 0 0 0-281-180"/></svg><text x="78" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#374151">GHS07: Exclamation Mark</text>
+  <text x="166" y="96" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#991b1b">HAZARD STATEMENTS:</text><text x="166" y="108" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">H315: Causes skin irritation (1% TFA ≥ 1% CLP GCL).</text><text x="166" y="119.2" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">H319: Causes serious eye irritation.</text><text x="166" y="130.4" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">Advisory: Contains 10% DMSO — accelerates skin absorption</text><text x="166" y="141.6" font-family="Arial, sans-serif" font-size="8.8" fill="#111827">of dissolved solutes.</text><text x="166" y="174" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#1e40af">PRECAUTIONARY STATEMENTS:</text><text x="166" y="186" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">P264: Wash skin thoroughly after handling.</text><text x="166" y="197.0" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">P280: Wear chemical-resistant gloves (butyl/nitrile) and</text><text x="166" y="208.0" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">eye protection.</text><text x="166" y="219.0" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">P305+P351+P338: IF IN EYES: Rinse cautiously with water</text><text x="166" y="230.0" font-family="Arial, sans-serif" font-size="8.6" fill="#1f2937">for several minutes.</text>
+  <line x1="12" y1="256" x2="508" y2="256" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="12" y="263" width="158" height="53" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="18" y="276" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569">DATE PREPARED:</text>
+  <line x1="18" y1="304" x2="160" y2="304" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="178" y="263" width="158" height="53" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="184" y="276" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569">PREPARED BY:</text>
+  <line x1="184" y1="304" x2="326" y2="304" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="344" y="263" width="164" height="53" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="350" y="276" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#475569">NOTES:</text>
+  <line x1="350" y1="304" x2="498" y2="304" stroke="#cbd5e1" stroke-width="1"/>
+</svg>
