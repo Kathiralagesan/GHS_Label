@@ -2,7 +2,7 @@
 
 **A browser-based chemical labeling studio and Python CLI for laboratory solutions and custom mixtures.**
 
-[**https://kathiralagesan.github.io/GHS_Label/**](https://kathiralagesan.github.io/GHS_Label/){.uri}
+[**https://kathiralagesan.github.io/GHS_Label/**](https://kathiralagesan.github.io/GHS_Label/)
 
 Conceived and developed by **Dr. Kathirvel Alagesan**.
 
