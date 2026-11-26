@@ -2282,9 +2282,12 @@ def generate_universal_html_app():
 
       <div class="audit-panel">
         <div style="font-family:var(--mono); font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink);">
-          CLP Regulation (EC) No 1272/2008 Calculation Dossier
+          CLP Regulation (EC) No 1272/2008 Calculation Dossier (Screening Suggestion)
         </div>
         <ul id="auditList"></ul>
+        <div style="margin-top:8px; padding-top:7px; border-top:1px dashed var(--rule); font-size:11px; color:var(--ink-secondary); line-height:1.4;">
+          <strong>Verification Required:</strong> This output is an automated screening suggestion only. Verify all classifications, concentrations, and hazard statements against official supplier <strong>Safety Data Sheets (SDS)</strong> and your <strong>institutional / laboratory EHS practices</strong> before labeling containers.
+        </div>
       </div>
     </div>
   </div>
@@ -2741,7 +2744,7 @@ def generate_universal_html_app():
             unit: unit,
             customName: q,
             customCas: q,
-            customMw: 100,
+            customMw: null,
             customHazards: {{ flam2: false, corr1: false, acute3: false, irrit2: true, stot1: false, aquat: false }}
           }});
           renderRows();
@@ -2760,7 +2763,7 @@ def generate_universal_html_app():
             unit: unit,
             customName: q,
             customCas: q,
-            customMw: 100,
+            customMw: null,
             customHazards: {{ flam2: false, corr1: false, acute3: false, irrit2: true, stot1: false, aquat: false }}
           }});
           renderRows();
@@ -2796,9 +2799,9 @@ def generate_universal_html_app():
 
     function toPct(amount, unit, mw) {{
       const a = parseFloat(amount) || 0;
-      const m = parseFloat(mw) || 100;
-      if (unit === 'M') return a * (m / 10.0);
-      if (unit === 'mM') return a * (m / 10000.0);
+      const m = parseFloat(mw);
+      if (unit === 'M') return (m > 0) ? a * (m / 10.0) : null;
+      if (unit === 'mM') return (m > 0) ? a * (m / 10000.0) : null;
       return a;
     }}
 
@@ -2845,7 +2848,7 @@ def generate_universal_html_app():
             unit: unit,
             customName: name,
             customCas: name,
-            customMw: 100,
+            customMw: null,
             customHazards: {{ flam2: false, corr1: false, acute3: false, irrit2: true, stot1: false, aquat: false }}
           }});
           if (isPubChemEnabled()) {{
@@ -2884,7 +2887,7 @@ def generate_universal_html_app():
         if (val === '__CUSTOM__' && !rows[idx].customName) {{
           rows[idx].customName = 'Custom Reagent';
           rows[idx].customCas = 'N/A';
-          rows[idx].customMw = 100;
+          rows[idx].customMw = null;
           rows[idx].customHazards = {{ flam2: false, corr1: false, acute3: false, irrit2: true, stot1: false, aquat: false }};
         }}
       }} else {{
@@ -2926,7 +2929,7 @@ def generate_universal_html_app():
               </div>
               <div>
                 <label class="field-label">MW (g/mol)</label>
-                <input type="number" value="${{r.customMw || 100}}" oninput="rows[${{idx}}].customMw=parseFloat(this.value)||100; recalculate();" />
+                <input type="number" value="${{r.customMw || ''}}" placeholder="Verified MW (required for M/mM)" oninput="rows[${{idx}}].customMw=parseFloat(this.value)||null; recalculate();" />
               </div>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
@@ -2973,7 +2976,7 @@ def generate_universal_html_app():
         key: r.customName || 'Custom',
         name: r.customName || 'Custom',
         cas: r.customCas || 'Custom',
-        mw: r.customMw || 100,
+        mw: r.customMw || null,
         flam_min_cat2: hz.flam2 ? 15.0 : null,
         corr_1_min: hz.corr1 ? 5.0 : null,
         eye_1_min: hz.corr1 ? 3.0 : null,
@@ -3009,7 +3012,12 @@ def generate_universal_html_app():
       for (const comp of comps) {{
         const ch = comp.chem;
         const pct = comp.pct;
-        if (!ch || pct <= 0 || ch.key === 'H2O') continue;
+        if (!ch || ch.key === 'H2O') continue;
+        if (pct === null) {{
+          audit.push(`⚠️ UNRESOLVED MW: "${{ch.key}}" (${{comp.amount}} ${{comp.unit}}) has no verified Molecular Weight — molar contribution NOT calculated. Enter a verified MW from the supplier SDS.`);
+          continue;
+        }}
+        if (pct <= 0) continue;
         const cname = ch.key;
 
         (ch.p_Codes || []).forEach(addP);
