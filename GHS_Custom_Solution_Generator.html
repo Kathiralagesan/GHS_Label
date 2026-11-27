@@ -41,9 +41,8 @@
     /* High-End Editorial Masthead on Pure White */
     .masthead {
       background: #ffffff;
-      border-top: 5px solid var(--blue-editorial);
       border-bottom: 1.5px solid var(--ink);
-      padding: 20px 28px 18px;
+      padding: 18px 28px 16px;
     }
     .masthead-inner {
       max-width: 1380px;
@@ -616,93 +615,74 @@
     <div class="masthead-inner">
       <div class="masthead-main">
         <div>
-          <h1>Laboratory GHS Pictogram &amp; Mixture Label Studio</h1>
-          <p class="masthead-sub">Composition-driven hazard screening, 38 inbuilt laboratory buffer presets, optional NCBI PubChem CAS lookup, and A4 / PDF sheet press.</p>
+          <h1>Laboratory GHS Label Generator</h1>
+          <p class="masthead-sub">Composition-driven hazard screening with optional NCBI PubChem CAS lookup</p>
         </div>
-        <div class="masthead-actions">
-          <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Load 18 Core Buffers to A4 Sheet</button>
-          <button class="btn btn-paper" onclick="addCurrentToQueue(1)">➕ Add Label to Sheet (<span id="queueCount">0</span>)</button>
-          <button class="btn btn-accent" id="topPdfBtn" onclick="exportSheetsToPDF()">⬇️ Export Sheet PDF</button>
-          <button class="btn btn-ink" onclick="printCurrentOrQueue()">🖨️ Print A4 Sheet</button>
-        </div>
-      </div>
-      <div class="masthead-notice">
-        <strong>Verify against official documents:</strong> Generated labels are automated screening suggestions only. Verify all chemical identities, concentrations, pictograms, signal words, and hazard/precautionary statements against official supplier <strong>Safety Data Sheets (SDS)</strong> and applicable <strong>institutional or laboratory EHS practices</strong> before affixing labels to containers.
       </div>
     </div>
   </header>
 
   <div class="workspace-grid no-print">
-    <!-- Left Column: Formulation, 38 Inbuilt Presets & CAS Registry -->
+    <!-- Left Column: General Settings, Streamlined Presets & CAS Registry -->
     <div class="ed-card">
       <div class="ed-section-header">
         <div>
           <span class="ed-section-num">Section I</span>
-          <h2 class="ed-section-title" style="display:inline;">Formulation &amp; Inbuilt Buffer Library</h2>
+          <h2 class="ed-section-title" style="display:inline;">Formulation &amp; Label Setup</h2>
         </div>
-        <select id="modeSelect" onchange="recalculate()" style="width:auto; font-family:var(--mono); font-size:11px; font-weight:700;">
-          <option value="reg">Classification: Strict CLP Cutoffs</option>
-          <option value="ehs">Classification: Conservative Lab EHS</option>
-        </select>
       </div>
 
-      <!-- Layout & Physical Print Size -->
-      <div class="grid-2" style="margin-bottom:14px; background:var(--paper); padding:11px 12px; border:1px solid var(--rule);">
-        <div>
-          <label class="field-label">Label Format Style</label>
-          <select id="layoutSelect" onchange="renderPreview()" style="font-weight:600;">
-            <option value="minimal" selected>Minimal Bench Label (Pictograms + Date / Prepared By / Notes)</option>
-            <option value="full">Full Regulatory Label (Includes H &amp; P Statements)</option>
-          </select>
-        </div>
-        <div>
-          <label class="field-label">Calibrated Physical Label Size</label>
-          <select id="sizePreset" onchange="onSizeChange()" style="font-weight:600;">
-            <option value="100x60">Large Bottle (500–1000 mL): 100 × 60 mm (3.94" × 2.36")</option>
-            <option value="80x45" selected>Medium Bottle (250–500 mL): 80 × 45 mm (3.15" × 1.77")</option>
-            <option value="60x35">Small Bottle / 50 mL Falcon: 60 × 35 mm (2.36" × 1.38")</option>
-            <option value="45x25">Mini 15 mL Tube / Vial: 45 × 25 mm (1.77" × 0.98")</option>
-            <option value="custom">Custom Dimensions (mm)...</option>
-          </select>
-          <div id="customSizeBox" style="display:none; gap:6px; align-items:center; margin-top:6px;">
-            <input type="number" id="customW" value="80" min="20" max="200" oninput="renderPreview()" placeholder="W (mm)" />
-            <span>×</span>
-            <input type="number" id="customH" value="45" min="15" max="150" oninput="renderPreview()" placeholder="H (mm)" />
-            <span style="font-family:var(--mono); font-size:11px;">mm</span>
+      <!-- General: Classification, Label Format Style & Calibrated Physical Size -->
+      <div style="margin-bottom:14px; background:var(--ivory); padding:12px 13px; border:1px solid var(--rule);">
+        <div class="field-label" style="color:var(--blue-editorial); margin-bottom:8px;">General</div>
+        <div class="grid-3" style="align-items:start;">
+          <div>
+            <label class="field-label">Classification</label>
+            <select id="modeSelect" onchange="recalculate()" style="font-weight:600;">
+              <option value="reg">Strict CLP Cutoffs</option>
+              <option value="ehs">Conservative Lab EHS</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Label Format Style</label>
+            <select id="layoutSelect" onchange="renderPreview()" style="font-weight:600;">
+              <option value="minimal" selected>Minimal Bench Label</option>
+              <option value="full">Full Regulatory (H &amp; P)</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label">Calibrated Physical Label Size</label>
+            <select id="sizePreset" onchange="onSizeChange()" style="font-weight:600;">
+              <option value="100x60">Large (500–1000 mL): 100 × 60 mm</option>
+              <option value="80x45" selected>Medium (250–500 mL): 80 × 45 mm</option>
+              <option value="60x35">Small / 50 mL Falcon: 60 × 35 mm</option>
+              <option value="45x25">Mini 15 mL Tube / Vial: 45 × 25 mm</option>
+              <option value="custom">Custom Dimensions (mm)...</option>
+            </select>
+            <div id="customSizeBox" style="display:none; gap:6px; align-items:center; margin-top:6px;">
+              <input type="number" id="customW" value="80" min="20" max="200" oninput="renderPreview()" placeholder="W (mm)" />
+              <span>×</span>
+              <input type="number" id="customH" value="45" min="15" max="150" oninput="renderPreview()" placeholder="H (mm)" />
+              <span style="font-family:var(--mono); font-size:11px;">mm</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Inbuilt Solution & Buffer Quick-Pick Bank (All 38 Presets Restored!) -->
-      <div class="inbuilt-bank">
-        <div class="tab-bar">
-          <div style="display:flex; flex-wrap:wrap; gap:4px; align-items:center;">
-            <span style="font-family:var(--mono); font-size:10.5px; font-weight:700; color:var(--ink); margin-right:4px;">INBUILT LABELS (38):</span>
-            <button type="button" class="tab-btn active" id="tab_core18" onclick="setPresetTab('core18')">Core 18 LC-MS &amp; Solvents</button>
-            <button type="button" class="tab-btn" id="tab_lcms" onclick="setPresetTab('lcms')">Extra LC-MS (6)</button>
-            <button type="button" class="tab-btn" id="tab_proteomics" onclick="setPresetTab('proteomics')">Proteomics &amp; Lysis (7)</button>
-            <button type="button" class="tab-btn" id="tab_bio" onclick="setPresetTab('bio')">Gels, Fixatives &amp; Stocks (7)</button>
-            <button type="button" class="tab-btn" id="tab_all" onclick="setPresetTab('all')">All 38</button>
-          </div>
-          <button type="button" class="btn btn-paper" style="padding:3px 8px; font-size:11px; background:#fff;" onclick="queueActivePresetTab()">
-            + Queue This Tab to Sheet
-          </button>
-        </div>
-        <div id="presetPillsContainer" class="preset-pills-wrap"></div>
-      </div>
-
-      <!-- Dropdown Selector + Free-Text Formula Parser -->
+      <!-- Streamlined Searchable Inbuilt Presets (38) + Free-Text Mixture Formula Parser -->
       <div class="grid-2" style="margin-bottom:14px;">
         <div>
-          <label class="field-label">Inbuilt Buffer Dropdown (All 38 Presets)</label>
+          <label class="field-label">Inbuilt Buffer Presets (Search or Select from 38)</label>
+          <input type="text" id="presetSearchInput" placeholder="Filter 38 presets (e.g. TFA, ACN, RIPA, Tris)..." oninput="filterInbuiltPresets()" style="margin-bottom:6px;" />
           <select id="preset18Select" onchange="onPickStandard18(this.value)"></select>
         </div>
         <div>
-          <label class="field-label">Free-Text Formula Parser (Names or CAS)</label>
+          <label class="field-label">Free-Text Mixture Formula Parser (Any Recipe: Names or CAS)</label>
           <div style="display:flex; gap:6px;">
             <input type="text" id="formulaInput" value="1% TFA, 80% ACN" placeholder="e.g. 6 M GdnHCl, 50 mM Tris  or  80% 75-05-8" onkeydown="if(event.key==='Enter') parseFormulaInput()" />
             <button class="btn btn-ink" style="padding:7px 12px;" onclick="parseFormulaInput()">Parse</button>
           </div>
+          <div class="cas-help-note">Parses any custom buffer recipe (not just presets) into ingredients below.</div>
         </div>
       </div>
 
@@ -742,23 +722,6 @@
           <span class="cas-help-note" style="margin:0;">
             <strong>Single-Chemical</strong> replaces the recipe below; <strong>+ Add Ingredient</strong> appends it to your buffer mixture.
           </span>
-        </div>
-        <div class="chip-row">
-          <span style="font-family:var(--mono); font-size:10.5px; font-weight:700; color:var(--blue-editorial);">QUICK CAS:</span>
-          <button class="chip" onclick="quickCasTest('75-05-8', 100, '% v/v')">75-05-8 (ACN)</button>
-          <button class="chip" onclick="quickCasTest('67-56-1', 100, '% v/v')">67-56-1 (Methanol)</button>
-          <button class="chip" onclick="quickCasTest('64-17-5', 100, '% v/v')">64-17-5 (Ethanol)</button>
-          <button class="chip" onclick="quickCasTest('67-63-0', 100, '% v/v')">67-63-0 (IPA)</button>
-          <button class="chip" onclick="quickCasTest('76-05-1', 1, '% v/v')">76-05-1 (1% TFA)</button>
-          <button class="chip" onclick="quickCasTest('64-18-6', 1, '% v/v')">64-18-6 (1% FA)</button>
-          <button class="chip" onclick="quickCasTest('67-68-5', 100, '% v/v')">67-68-5 (DMSO)</button>
-          <button class="chip" onclick="quickCasTest('67-64-1', 100, '% v/v')">67-64-1 (Acetone)</button>
-          <button class="chip" onclick="quickCasTest('67-66-3', 100, '% v/v')">67-66-3 (Chloroform)</button>
-          <button class="chip" onclick="quickCasTest('123-91-1', 100, '% v/v')">123-91-1 (1,4-Dioxane)</button>
-          <button class="chip" onclick="quickCasTest('1239-45-8', 1, '% w/v')">1239-45-8 (EtBr)</button>
-          <button class="chip" onclick="quickCasTest('7664-39-3', 5, '% v/v')">7664-39-3 (5% HF)</button>
-          <button class="chip" onclick="quickCasTest('26628-22-8', 1, '% w/v')">26628-22-8 (NaN₃)</button>
-          <button class="chip" onclick="quickCasTest('109-89-7', 100, '% v/v')">109-89-7 (Live PubChem)</button>
         </div>
         <div id="casLookupCard" style="display:none; margin-top:10px; background:#ffffff; border:1px solid var(--rule); padding:10px 12px; font-size:12px;"></div>
       </div>
@@ -848,8 +811,8 @@
           CLP Regulation (EC) No 1272/2008 Calculation Dossier (Screening Suggestion)
         </div>
         <ul id="auditList"></ul>
-        <div style="margin-top:8px; padding-top:7px; border-top:1px dashed var(--rule); font-size:11px; color:var(--ink-secondary); line-height:1.4;">
-          <strong>Verification Required:</strong> This output is an automated screening suggestion only. Verify all classifications, concentrations, and hazard statements against official supplier <strong>Safety Data Sheets (SDS)</strong> and your <strong>institutional / laboratory EHS practices</strong> before labeling containers.
+        <div style="margin-top:10px; padding:9px 11px; background:#fef2f2; border:1px solid #fecaca; border-left:3.5px solid #991b1b; font-size:11.5px; color:#7f1d1d; line-height:1.45;">
+          <strong>Verification Required:</strong> This output is an automated screening suggestion only. Verify all chemical identities, concentrations, pictograms, signal words, and hazard/precautionary statements against official supplier <strong>Safety Data Sheets (SDS)</strong> and your <strong>institutional / laboratory EHS practices</strong> before affixing labels to containers.
         </div>
       </div>
     </div>
@@ -1028,20 +991,31 @@
       return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    function initInbuiltPresetsUI() {
+    function initInbuiltPresetsUI(filterText = '') {
       const sel = document.getElementById('preset18Select');
-      if (sel) {
-        const groups = [...new Set(INBUILT_PRESETS.map(p => p.group))];
-        let html = '<option value="">— Select from 38 Inbuilt Buffers, Solvents &amp; Stocks —</option>';
-        for (const g of groups) {
-          const opts = INBUILT_PRESETS.filter(p => p.group === g).map(p =>
-            `<option value="${esc(p.formula)}|${esc(p.title)}">${p.num}. ${esc(p.title)}</option>`
-          ).join('');
-          html += `<optgroup label="${esc(g)}">${opts}</optgroup>`;
-        }
-        sel.innerHTML = html;
+      if (!sel) return;
+      const q = (filterText || '').trim().toLowerCase();
+      const filtered = q
+        ? INBUILT_PRESETS.filter(p =>
+            p.title.toLowerCase().includes(q) ||
+            p.formula.toLowerCase().includes(q) ||
+            p.group.toLowerCase().includes(q)
+          )
+        : INBUILT_PRESETS;
+      const groups = [...new Set(filtered.map(p => p.group))];
+      let html = `<option value="">— Select from ${filtered.length} Inbuilt Presets —</option>`;
+      for (const g of groups) {
+        const opts = filtered.filter(p => p.group === g).map(p =>
+          `<option value="${esc(p.formula)}|${esc(p.title)}">${p.num}. ${esc(p.title)}</option>`
+        ).join('');
+        html += `<optgroup label="${esc(g)}">${opts}</optgroup>`;
       }
-      renderPresetPills();
+      sel.innerHTML = html;
+    }
+
+    function filterInbuiltPresets() {
+      const q = document.getElementById('presetSearchInput')?.value || '';
+      initInbuiltPresetsUI(q);
     }
 
     function setPresetTab(tabId) {
@@ -1824,45 +1798,46 @@
       if (layout === 'minimal') {
         let pictoParts = [];
         if (pictos.length === 1) {
-          pictoParts.push(renderDiamond(pictos[0], 56, 86, 118));
-          pictoParts.push(`<text x="115" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#334155">${esc(SYMBOLS[pictos[0]].name)}</text>`);
+          pictoParts.push(renderDiamond(pictos[0], 61, 84, 108));
+          pictoParts.push(`<text x="115" y="208" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#334155">${esc(SYMBOLS[pictos[0]].name)}</text>`);
         } else if (pictos.length === 2) {
-          pictoParts.push(renderDiamond(pictos[0], 18, 96, 94));
-          pictoParts.push(renderDiamond(pictos[1], 116, 96, 94));
-          pictoParts.push(`<text x="115" y="216" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#334155">${pictos.join(' + ')}</text>`);
+          pictoParts.push(renderDiamond(pictos[0], 22, 92, 88));
+          pictoParts.push(renderDiamond(pictos[1], 120, 92, 88));
+          pictoParts.push(`<text x="115" y="202" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#334155">${pictos.join(' + ')}</text>`);
         } else if (pictos.length === 3) {
-          pictoParts.push(renderDiamond(pictos[0], 74, 80, 82));
-          pictoParts.push(renderDiamond(pictos[1], 24, 142, 82));
-          pictoParts.push(renderDiamond(pictos[2], 124, 142, 82));
-          pictoParts.push(`<text x="115" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#334155">${pictos.join(' + ')}</text>`);
+          pictoParts.push(renderDiamond(pictos[0], 81, 80, 68));
+          pictoParts.push(renderDiamond(pictos[1], 36, 134, 68));
+          pictoParts.push(renderDiamond(pictos[2], 126, 134, 68));
+          pictoParts.push(`<text x="115" y="214" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#334155">${pictos.join(' + ')}</text>`);
         } else if (pictos.length >= 4) {
-          pictoParts.push(renderDiamond(pictos[0], 34, 82, 74));
-          pictoParts.push(renderDiamond(pictos[1], 122, 82, 74));
-          pictoParts.push(renderDiamond(pictos[2], 34, 156, 74));
-          pictoParts.push(renderDiamond(pictos[3], 122, 156, 74));
-          pictoParts.push(`<text x="115" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#334155">${pictos.slice(0,4).join(' + ')}</text>`);
+          pictoParts.push(renderDiamond(pictos[0], 44, 80, 62));
+          pictoParts.push(renderDiamond(pictos[1], 124, 80, 62));
+          pictoParts.push(renderDiamond(pictos[2], 44, 140, 62));
+          pictoParts.push(renderDiamond(pictos[3], 124, 140, 62));
+          pictoParts.push(`<text x="115" y="214" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#334155">${pictos.slice(0,4).join(' + ')}</text>`);
         } else {
           pictoParts.push(`
-            <rect x="34" y="112" width="162" height="92" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" stroke-dasharray="5,3"/>
-            <circle cx="115" cy="142" r="16" fill="#16a34a"/>
-            <path d="M108 142 L113.5 147.5 L123 137" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="115" y="176" text-anchor="middle" font-family="Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#15803d">NO GHS PICTOGRAM</text>
-            <text x="115" y="191" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" fill="#166534">Below CLP Cutoff / Non-Haz</text>
+            <rect x="34" y="102" width="162" height="86" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" stroke-dasharray="5,3"/>
+            <circle cx="115" cy="130" r="15" fill="#16a34a"/>
+            <path d="M108 130 L113.5 135.5 L123 125" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="115" y="162" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#15803d">NO GHS PICTOGRAM</text>
+            <text x="115" y="177" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.2" fill="#166534">Below CLP Cutoff / Non-Haz</text>
           `);
         }
+
+        const minTitleSz = title.length <= 28 ? 22 : (title.length <= 38 ? 18 : 15);
 
         return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="${w}mm" height="${h}mm" style="width:100%; height:100%; display:block;">
           <rect x="2" y="2" width="476" height="266" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
           <path d="M 12 3.5 L 468 3.5 C 473 3.5 476.5 7 476.5 12 L 476.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="${sigBg}"/>
-          <text x="16" y="40" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#0f172a">${esc(title)}</text>
+          <text x="16" y="40" font-family="Arial, sans-serif" font-size="${minTitleSz}" font-weight="900" fill="#0f172a">${esc(title)}</text>
           <text x="16" y="58" font-family="Arial, sans-serif" font-size="10.8" font-weight="bold" fill="#334155">${esc(subtitle)}</text>
-
-          <rect x="332" y="20" width="134" height="32" rx="6" fill="${sigBg}"/>
-          <text x="399" y="41" text-anchor="middle" font-family="Arial, sans-serif" font-size="13.5" font-weight="900" letter-spacing="0.8" fill="#ffffff">${esc(signal)}</text>
 
           <line x1="12" y1="70" x2="468" y2="70" stroke="#cbd5e1" stroke-width="1.5"/>
           <rect x="12" y="78" width="206" height="178" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
           ${pictoParts.join('')}
+          <rect x="24" y="222" width="182" height="26" rx="5" fill="${sigBg}"/>
+          <text x="115" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12.5" font-weight="900" letter-spacing="0.8" fill="#ffffff">${esc(signal)}</text>
 
           <rect x="228" y="78" width="238" height="53" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
           <text x="238" y="94" font-family="Arial, sans-serif" font-size="9.5" font-weight="800" fill="#475569">DATE PREPARED:</text>
@@ -1883,30 +1858,30 @@
 
       let pictoParts = [];
       if (pictos.length === 1) {
-        pictoParts.push(renderDiamond(pictos[0], 30, 108, 96));
-        pictoParts.push(`<text x="78" y="218" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#374151">${esc(SYMBOLS[pictos[0]].name)}</text>`);
+        pictoParts.push(renderDiamond(pictos[0], 34, 92, 92));
+        pictoParts.push(`<text x="82" y="204" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#374151">${esc(SYMBOLS[pictos[0]].name)}</text>`);
       } else if (pictos.length === 2) {
-        pictoParts.push(renderDiamond(pictos[0], 8, 114, 72));
-        pictoParts.push(renderDiamond(pictos[1], 76, 114, 72));
-        pictoParts.push(`<text x="78" y="206" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#374151">${pictos.join(' + ')}</text>`);
+        pictoParts.push(renderDiamond(pictos[0], 14, 102, 66));
+        pictoParts.push(renderDiamond(pictos[1], 84, 102, 66));
+        pictoParts.push(`<text x="82" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#374151">${pictos.join(' + ')}</text>`);
       } else if (pictos.length === 3) {
-        pictoParts.push(renderDiamond(pictos[0], 45, 88, 66));
-        pictoParts.push(renderDiamond(pictos[1], 11, 142, 66));
-        pictoParts.push(renderDiamond(pictos[2], 79, 142, 66));
-        pictoParts.push(`<text x="78" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#374151">${pictos.join(' + ')}</text>`);
+        pictoParts.push(renderDiamond(pictos[0], 54, 84, 56));
+        pictoParts.push(renderDiamond(pictos[1], 22, 134, 56));
+        pictoParts.push(renderDiamond(pictos[2], 86, 134, 56));
+        pictoParts.push(`<text x="82" y="206" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#374151">${pictos.join(' + ')}</text>`);
       } else if (pictos.length >= 4) {
-        pictoParts.push(renderDiamond(pictos[0], 14, 86, 62));
-        pictoParts.push(renderDiamond(pictos[1], 80, 86, 62));
-        pictoParts.push(renderDiamond(pictos[2], 14, 150, 62));
-        pictoParts.push(renderDiamond(pictos[3], 80, 150, 62));
-        pictoParts.push(`<text x="78" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#374151">${pictos.slice(0,4).join(' + ')}</text>`);
+        pictoParts.push(renderDiamond(pictos[0], 22, 84, 54));
+        pictoParts.push(renderDiamond(pictos[1], 88, 84, 54));
+        pictoParts.push(renderDiamond(pictos[2], 22, 140, 54));
+        pictoParts.push(renderDiamond(pictos[3], 88, 140, 54));
+        pictoParts.push(`<text x="82" y="208" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.5" font-weight="bold" fill="#374151">${pictos.slice(0,4).join(' + ')}</text>`);
       } else {
         pictoParts.push(`
-          <rect x="20" y="115" width="116" height="72" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="4,3"/>
-          <circle cx="78" cy="140" r="13" fill="#16a34a"/>
-          <path d="M72 140 L76.5 144.5 L85 135.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="78" y="166" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#15803d">NO GHS PICTOGRAM</text>
-          <text x="78" y="178" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.2" fill="#166534">Below CLP Cutoff / Non-Haz</text>
+          <rect x="20" y="102" width="124" height="78" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="4,3"/>
+          <circle cx="82" cy="126" r="12" fill="#16a34a"/>
+          <path d="M76 126 L80.5 130.5 L89 121.5" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="82" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="9.5" font-weight="bold" fill="#15803d">NO GHS PICTOGRAM</text>
+          <text x="82" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#166534">Below CLP Cutoff / Non-Haz</text>
         `);
       }
 
@@ -1935,21 +1910,21 @@
       }
 
       const modeBadge = mode === 'reg' ? 'CLP/GHS Regulatory' : 'Conservative Lab EHS';
+      const fullTitleSz = title.length <= 30 ? 20 : (title.length <= 42 ? 17 : 14.5);
 
       return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="${w}mm" height="${h}mm" style="width:100%; height:100%; display:block;">
         <rect x="2" y="2" width="516" height="326" rx="10" fill="#ffffff" stroke="#111827" stroke-width="2.5"/>
         <path d="M 12 3.5 L 508 3.5 C 513 3.5 516.5 7 516.5 12 L 516.5 13 L 3.5 13 L 3.5 12 C 3.5 7 7 3.5 12 3.5 Z" fill="${sigBg}"/>
-        <text x="16" y="37" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#0f172a">${esc(title)}</text>
+        <text x="16" y="37" font-family="Arial, sans-serif" font-size="${fullTitleSz}" font-weight="900" fill="#0f172a">${esc(title)}</text>
         <text x="16" y="53" font-family="Arial, sans-serif" font-size="10.2" font-weight="bold" fill="#334155">${esc(subtitle)}</text>
+        <text x="504" y="53" text-anchor="end" font-family="Arial, sans-serif" font-size="7.8" font-weight="bold" fill="#64748b">[${esc(modeBadge)}]</text>
         <text x="16" y="66" font-family="Arial, sans-serif" font-size="8.5" fill="#64748b">${esc(cas)}  •  ${esc(composition)}</text>
-
-        <rect x="374" y="19" width="132" height="28" rx="5" fill="${sigBg}"/>
-        <text x="440" y="37" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="0.8" fill="#ffffff">${esc(signal)}</text>
-        <text x="440" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.8" font-weight="bold" fill="#64748b">[${esc(modeBadge)}]</text>
 
         <line x1="12" y1="74" x2="508" y2="74" stroke="#cbd5e1" stroke-width="1.5"/>
         <rect x="10" y="80" width="144" height="170" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
         ${pictoParts.join('')}
+        <rect x="18" y="220" width="128" height="23" rx="4" fill="${sigBg}"/>
+        <text x="82" y="236" text-anchor="middle" font-family="Arial, sans-serif" font-size="11.5" font-weight="900" letter-spacing="0.8" fill="#ffffff">${esc(signal)}</text>
         ${textEls.join('')}
 
         <line x1="12" y1="256" x2="508" y2="256" stroke="#cbd5e1" stroke-width="1.5"/>
