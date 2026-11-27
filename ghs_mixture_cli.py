@@ -3634,8 +3634,10 @@ def generate_universal_html_app():
     }}
 
     function renderQueue() {{
-      document.getElementById('queueCount').textContent = printQueue.length;
-      document.getElementById('queueHeaderCount').textContent = printQueue.length;
+      const qc = document.getElementById('queueCount');
+      if (qc) qc.textContent = printQueue.length;
+      const qhc = document.getElementById('queueHeaderCount');
+      if (qhc) qhc.textContent = printQueue.length;
 
       const spec = getPageSpec();
       const dims = getDims();
