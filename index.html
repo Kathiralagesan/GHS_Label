@@ -49,19 +49,25 @@
       max-width: 1380px;
       margin: 0 auto;
     }
-    .masthead-meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--mono);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-secondary);
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--rule);
-      margin-bottom: 12px;
+    .masthead-notice {
+      margin-top: 12px;
+      padding: 8px 12px;
+      background: var(--mustard-soft);
+      border: 1px solid var(--mustard);
+      border-left: 4px solid var(--blue-editorial);
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+    .print-sheet-footer {
+      position: absolute;
+      bottom: 2.5mm;
+      text-align: center;
+      font-family: var(--sans);
+      font-size: 6.5pt;
+      color: #64748b;
+      pointer-events: none;
+      letter-spacing: 0.01em;
     }
     .masthead-main {
       display: flex;
@@ -605,17 +611,13 @@
   </style>
 </head>
 <body>
-  <!-- Editorial Masthead (Clean header without top credit pill) -->
+  <!-- Editorial Masthead -->
   <header class="masthead">
     <div class="masthead-inner">
-      <div class="masthead-meta">
-        <span>LABORATORY SAFETY &amp; CHEMICAL HYGIENE MONOGRAPH • UNECE GHS / EU CLP (EC) NO 1272/2008</span>
-        <span id="mastheadNetStatus" style="color:var(--blue-editorial); font-weight:700;">100% CLIENT-SIDE • ZERO BACKEND • OPTIONAL PUBCHEM CAS LOOKUP</span>
-      </div>
       <div class="masthead-main">
         <div>
           <h1>Laboratory GHS Pictogram &amp; Mixture Label Studio</h1>
-          <p class="masthead-sub">Composition-driven hazard classification, 38 inbuilt laboratory buffer presets, live NCBI PubChem CAS lookup, and anti-clip A4 / PDF sheet press.</p>
+          <p class="masthead-sub">Composition-driven hazard screening, 38 inbuilt laboratory buffer presets, optional NCBI PubChem CAS lookup, and A4 / PDF sheet press.</p>
         </div>
         <div class="masthead-actions">
           <button class="btn btn-paper" onclick="loadAll18PresetsToQueue()">📚 Load 18 Core Buffers to A4 Sheet</button>
@@ -623,6 +625,9 @@
           <button class="btn btn-accent" id="topPdfBtn" onclick="exportSheetsToPDF()">⬇️ Export Sheet PDF</button>
           <button class="btn btn-ink" onclick="printCurrentOrQueue()">🖨️ Print A4 Sheet</button>
         </div>
+      </div>
+      <div class="masthead-notice">
+        <strong>Verify against official documents:</strong> Generated labels are automated screening suggestions only. Verify all chemical identities, concentrations, pictograms, signal words, and hazard/precautionary statements against official supplier <strong>Safety Data Sheets (SDS)</strong> and applicable <strong>institutional or laboratory EHS practices</strong> before affixing labels to containers.
       </div>
     </div>
   </header>
@@ -1244,12 +1249,6 @@
       try { localStorage.setItem('ghs_studio_offline_mode', offline ? '1' : '0'); } catch(e) {}
       const pill = document.getElementById('offlineTogglePill');
       if (pill) pill.classList.toggle('offline-on', offline);
-      const status = document.getElementById('mastheadNetStatus');
-      if (status) {
-        status.textContent = offline
-          ? '100% CLIENT-SIDE • ZERO BACKEND • STRICT OFFLINE MODE (PUBCHEM DISABLED)'
-          : '100% CLIENT-SIDE • ZERO BACKEND • OPTIONAL PUBCHEM CAS LOOKUP';
-      }
     }
 
     async function fetchPubChemCas(queryStr) {
@@ -2274,6 +2273,10 @@
 
         const zoomStyle = spec.zoom !== 1.0 ? `zoom: ${spec.zoom};` : '';
 
+        const sheetFooter = sheet.pageH >= 100
+          ? `<div class="print-sheet-footer" style="left:${spec.marginMm}mm; right:${spec.marginMm}mm;">Screening suggestion only — Verify chemical identities, concentrations &amp; hazards against supplier Safety Data Sheets (SDS) and institutional/laboratory EHS practices before affixing.</div>`
+          : '';
+
         return `
           <div class="sheet-wrapper">
             <div class="sheet-caption no-print">
@@ -2282,6 +2285,7 @@
             <div class="print-sheet-page" style="width:${sheet.pageW}mm; height:${sheet.pageH}mm; ${zoomStyle}">
               ${marginGuide}
               ${slots}
+              ${sheetFooter}
             </div>
           </div>
         `;
@@ -2431,6 +2435,19 @@
               ctx.strokeRect(xPx - 2, yPx - 2, wPx + 4, hPx + 4);
               ctx.restore();
             }
+          }
+
+          if (sheet.pageH >= 100) {
+            ctx.save();
+            ctx.fillStyle = '#64748b';
+            ctx.font = `${Math.round(2.3 * pxPerMm)}px -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.fillText(
+              'Screening suggestion only — Verify chemical identities, concentrations & hazards against supplier Safety Data Sheets (SDS) and institutional/laboratory EHS practices before affixing.',
+              pxW / 2,
+              pxH - (3.0 * pxPerMm)
+            );
+            ctx.restore();
           }
 
           const jpegUrl = canvas.toDataURL('image/jpeg', 0.95);
